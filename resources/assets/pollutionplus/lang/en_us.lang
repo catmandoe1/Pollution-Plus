@@ -1,0 +1,6 @@
+item.ingot_void.name=Void Ingot
+item.star_void.name=Void Star
+
+tile.ore_void.name=Void Ore
+
+itemGroup.pollutionplustab=Pollution Plus
