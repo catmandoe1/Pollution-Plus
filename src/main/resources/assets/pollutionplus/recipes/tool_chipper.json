@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" AB"," BA","B  "],"key":{ "A":{"item":"minecraft:stone_button"}, "B":{"item":"minecraft:stick"}},"result":{"item":"pollutionplus:tool_chipper"}}

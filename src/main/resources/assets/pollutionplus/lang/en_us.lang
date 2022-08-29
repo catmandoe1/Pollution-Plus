@@ -1,0 +1,18 @@
+item.ingot_void.name=Void Ingot
+item.star_void.name=Void Star
+item.shard_void.name=Void Shard
+item.ingot_refined_void.name=Refined Void Ingot
+item.shard_refined_void.name=Refined Void Shard
+item.dust_iron.name=Iron Dust
+item.dust_gold.name=Gold Dust
+item.speck_diamond.name=Diamond Specks
+item.tool_chipper.name=Chipper
+item.binding_agent.name=Binding Agent
+item.primed_binding_agent.name=Primed Binding Agent
+item.refined_clump_void.name=Clump of Refined Void Matter
+item.refinement_gel.name=Refinement Gel
+
+tile.ore_void.name=Void Ore
+tile.tile_incinerator.name=Pollution Incinerator
+
+itemGroup.pollutionplustab=Pollution Plus
