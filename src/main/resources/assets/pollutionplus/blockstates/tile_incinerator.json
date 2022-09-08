@@ -4,14 +4,14 @@
 		"model": "pollutionplus:tile_incinerator"
 	},
     "variants": {
-        "powered_incinerator": {
+        "powered": {
 			"true": {
 				"textures": {
 					"north": "pollutionplus:blocks/incinerator_side_powered",
 					"south": "pollutionplus:blocks/incinerator_side_powered",
 					"west": "pollutionplus:blocks/incinerator_side_powered",
 					"east": "pollutionplus:blocks/incinerator_side_powered"
-				}
+                }
 			},
 			"false": {}
 		}

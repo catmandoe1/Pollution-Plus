@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+		"particle": "pollutionplus:blocks/placeholders/placeholder_side",
+        "down": "pollutionplus:blocks/placeholders/placeholder_bottom",
+		"up": "pollutionplus:blocks/placeholders/placeholder_top",
+		"north": "pollutionplus:blocks/placeholders/placeholder_front",
+		"south": "pollutionplus:blocks/placeholders/placeholder_side",
+		"west": "pollutionplus:blocks/placeholders/placeholder_side",
+		"east": "pollutionplus:blocks/placeholders/placeholder_side"
+    }
+}
