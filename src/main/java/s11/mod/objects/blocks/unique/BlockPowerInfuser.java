@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -21,18 +22,21 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import s11.mod.Main;
 import s11.mod.objects.blocks.BlockBase;
-import s11.mod.objects.tileEntities.TilePowerInfuser;
+import s11.mod.objects.tileEntities.machines.powerInfuser.TilePowerInfuser;
 import s11.mod.util.PlayerPressing;
+import s11.mod.util.Reference;
 
 public class BlockPowerInfuser extends BlockBase{
-	protected static final PropertyBool ACTIVE = PropertyBool.create("active");
-	protected static final PropertyDirection FACING = BlockHorizontal.FACING;
+	public static final PropertyBool ACTIVE = PropertyBool.create("active");
+	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public BlockPowerInfuser(String name, Material material) {
 		super(name, material);
 		this.setHardness(3.0F);
 		this.setResistance(10.0F);
+		setHarvestLevel("pickaxe", 0);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(ACTIVE, false));
 	}
 	
@@ -79,5 +83,14 @@ public class BlockPowerInfuser extends BlockBase{
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TilePowerInfuser();
+	}
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if (!worldIn.isRemote) {
+			playerIn.openGui(Main.instance, Reference.GUI_POWERINFUSER, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		}
+	
+		return true;
 	}
 }

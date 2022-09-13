@@ -21,13 +21,14 @@ import s11.mod.objects.tileEntities.TileIncinerator;
 import s11.mod.util.PlayerPressing;
 
 public class BlockIncinerator extends BlockBase {
-	protected static final PropertyBool POWERED = PropertyBool.create("powered");
+	public static final PropertyBool POWERED = PropertyBool.create("powered");
 	//public static final PropertyBool HASREDSTONE = PropertyBool.create("has_redstone");
 	
 	public BlockIncinerator(String name, Material material) {
 		super(name, material);
 		this.setHardness(3.0F);
 		this.setResistance(10.0F);
+		setHarvestLevel("pickaxe", 0);
 		setDefaultState(this.blockState.getBaseState().withProperty(this.POWERED, false));
 	}
 	

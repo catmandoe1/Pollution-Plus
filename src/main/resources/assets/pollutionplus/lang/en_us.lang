@@ -1,3 +1,4 @@
+//items
 item.ingot_void.name=Void Ingot
 item.star_void.name=Void Star
 item.shard_void.name=Void Shard
@@ -12,7 +13,13 @@ item.primed_binding_agent.name=Primed Binding Agent
 item.refined_clump_void.name=Clump of Refined Void Matter
 item.refinement_gel.name=Refinement Gel
 
+//tiles
 tile.ore_void.name=Void Ore
 tile.tile_incinerator.name=Pollution Incinerator
+tile.tile_power_infuser.name=Power Infuser
 
+/containers
+container.power_infuser=Power Infuser
+
+/tabs
 itemGroup.pollutionplustab=Pollution Plus

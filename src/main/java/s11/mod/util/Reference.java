@@ -8,4 +8,6 @@ public class Reference {
 	
 	public static final String CLIENT = "s11.mod.proxy.ClientProxy";
 	public static final String COMMON = "s11.mod.proxy.CommonProxy";
+	
+	public static final int GUI_POWERINFUSER = 0;
 }
