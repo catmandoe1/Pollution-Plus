@@ -28,7 +28,7 @@ import s11.mod.objects.tileEntities.machines.powerInfuser.TilePowerInfuser;
 import s11.mod.util.PlayerPressing;
 import s11.mod.util.Reference;
 
-public class BlockPowerInfuser extends BlockBase{
+public class BlockPowerInfuser extends BlockBase {
 	public static final PropertyBool ACTIVE = PropertyBool.create("active");
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
@@ -75,7 +75,7 @@ public class BlockPowerInfuser extends BlockBase{
 	}
 	
 	@Override
-	public boolean hasTileEntity() {
+	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
 	

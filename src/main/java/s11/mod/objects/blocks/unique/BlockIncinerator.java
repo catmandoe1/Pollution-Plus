@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import s11.mod.config.IncineratorConfig;
 import s11.mod.objects.blocks.BlockBase;
-import s11.mod.objects.tileEntities.TileIncinerator;
+import s11.mod.objects.tileEntities.machines.incinerator.TileIncinerator;
 import s11.mod.util.PlayerPressing;
 
 public class BlockIncinerator extends BlockBase {
