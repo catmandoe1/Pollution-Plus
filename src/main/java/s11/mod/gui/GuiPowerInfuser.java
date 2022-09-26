@@ -35,6 +35,7 @@ public class GuiPowerInfuser extends GuiContainer {
 		List<String> text = Lists.newArrayList(TextFormatting.LIGHT_PURPLE + "Energy Stored:" + TextFormatting.WHITE + " " + Integer.toString(tileentity.getEnergyStored()) + " / " + Integer.toString(tileentity.getMaxEnergyStored()) + " RF", 
 				TextFormatting.LIGHT_PURPLE + "Process Power:" + TextFormatting.WHITE + " " + Integer.toString(PowerInfuserConfig.infuserOperationCost) + " RF/t");
 		drawTooltip(text, mouseX, mouseY, 8, 6, 16, 74);
+		this.renderHoveredToolTip(mouseX, mouseY);
 	}
 	
 	// foreground is only for text, drawing textures will break
