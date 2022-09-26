@@ -21,7 +21,7 @@ public class PowerInfuserRecipes {
 	}
 	
 	public void addInfuserRecipe(Item input, Item output) {
-		//if (!input.isEmpty() && !output.isEmpty()) {
+		//if (!(input != null) && !(output != null)) {
 			infusingList.put(input, output);
 		//}
 	}
@@ -37,5 +37,9 @@ public class PowerInfuserRecipes {
 		} else {
 			return ItemStack.EMPTY;
 		}
+	}
+	
+	public Map<Item, Item> getRecipes() {
+		return infusingList;
 	}
 }

@@ -38,17 +38,11 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	private String customName;
 	    
     private int progress = 0;
-    private final int MAXPROGRESS = 40;
+    private final int MAXPROGRESS = 1200;
     //private boolean active = false;
     private boolean justUpdated = false;
     private boolean firstStart = false;
-    
-//    public TilePowerInfuser() {
-//    	System.out.println("-------------------");
-//    	System.out.println("	  made");
-//    	System.out.println("-------------------");
-//    }
-    
+        
     public boolean hasCustomName() 
 	{
 		return this.customName != null && !this.customName.isEmpty();
@@ -96,12 +90,10 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	public boolean canInfuse() {
-		//TODO double check if works
 		if (((ItemStack)this.handler.getStackInSlot(0)).isEmpty()) {
 			return false;
 		} else {
 			ItemStack result = getRecipe(handler.getStackInSlot(0));
-			//System.out.println("result = " + result);
 			if (result.isEmpty()) {
 				return false;
 			} else {
@@ -119,13 +111,11 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	public boolean canActivate() {
-		//addOrRemoveEnergy(1);
-		return energy.getEnergyStored() > 0;
+		//addOrRemoveEnergy(100);
+		return energy.getEnergyStored() >= PowerInfuserConfig.infuserOperationCost;
 	}
 	
 	public boolean isInfusing() {
-		//boolean test = progress > 0;
-		//System.out.println("can infuse = " + test);
 		return progress > 0; 
 	}
 	
@@ -148,23 +138,18 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		
 		ItemStack input = handler.getStackInSlot(0);
 		ItemStack output = handler.getStackInSlot(1);
-		
-		//System.out.println(canInfuse() + " can infuse");
-		
+				
 		if(canActivate() && canInfuse()) {
-			setField(2, (~(Math.abs(PowerInfuserConfig.infuserOperationCost - 1)))); //removes energy per tick
+			addOrRemoveEnergy((~(Math.abs(PowerInfuserConfig.infuserOperationCost - 1)))); //removes energy per tick
 			progress ++;
-			System.out.println("actual energy = " + energy);
 			
 			if (progress >= MAXPROGRESS) {
 				progress = 0;
 				
-				//System.out.println("finished");
 				if (handler.getStackInSlot(1).getCount() > 0) {
 					handler.getStackInSlot(1).grow(1);
 				} else {
 					handler.insertItem(1, getRecipe(input).copy(), false);
-					//System.out.println(getRecipe(input));
 				}
 				handler.getStackInSlot(0).shrink(1);
 			}
@@ -223,14 +208,13 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	/**
-	 * Use the numerous get... s such as {@link getEnergy} instead now.
+	 * Use the numerous get... s such as {@link getEnergy} instead.
 	 * 
 	 * 
 	 * 
 	 * @param {@code id} ranges from 0  -> 3
 	 * @return progress = 0, maxProgress = 1, energy = 2, maxCapacity = 3
 	 */
-	@Deprecated
 	public int getField(int id) {
 		switch(id) {
 		case 0:
@@ -247,36 +231,45 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	/**
-	 * Use the numerous sets... s such as {@link setEnergy} instead now.
+	 * Use the numerous sets... s such as {@link setEnergy} instead.
 	 * @param id
 	 * @param value
 	 */
-	@Deprecated
 	public void setField(int id, int value) {
 		switch(id) {
 		case 0:
-			this.progress = value;
+			progress = value;
 			break;
 		case 1:
+			//max progress
 			break;
 		case 2:
-			addOrRemoveEnergy(value);
+			setEnergy(value);
+			break;
+		case 3:
+			//max energy
 			break;
 		}
 	}
 	
 	/**
-     * Renamed version of {@code addOrRemoveEnergy}
+     * Sets the energy to the value, NOT adds. Use {@link addOrRemoveEnergy} for that
      */
 	public void setEnergy(int energy) {
-		addOrRemoveEnergy(energy);
+		//TODO make this set the energy properly
+		if (energy >= 1) {
+			int diff = energy - getEnergyStored();
+			addOrRemoveEnergy(diff);
+		}
+		
+		if (energy == 0) {
+			addOrRemoveEnergy(getEnergyStored() * -1);
+		}
 	}
 	
 	public void setProgress(int amount) {
 		if (amount <= MAXPROGRESS) {
 			progress = amount;
-		} else {
-			throw new ArithmeticException("Can not set progress above the max progress limit");
 		}
 	}
 	

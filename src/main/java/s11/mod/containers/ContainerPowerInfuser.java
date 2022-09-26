@@ -79,7 +79,7 @@ public class ContainerPowerInfuser extends Container {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int id, int data) {
-		tileentity.setField(id, data);
+		this.tileentity.setField(id, data);
 	}
 	
 	@Override

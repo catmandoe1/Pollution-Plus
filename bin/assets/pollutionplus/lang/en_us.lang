@@ -1,0 +1,37 @@
+# ITEMS
+item.ingot_void.name=Void Ingot
+item.star_void.name=Void Star
+item.shard_void.name=Void Shard
+item.ingot_refined_void.name=Refined Void Ingot
+item.shard_refined_void.name=Refined Void Shard
+item.dust_iron.name=Iron Dust
+item.dust_gold.name=Gold Dust
+item.speck_diamond.name=Diamond Specks
+item.tool_chipper.name=Chipper
+item.binding_agent.name=Binding Agent
+item.primed_binding_agent.name=Primed Binding Agent
+item.refined_clump_void.name=Clump of Refined Void Matter
+item.refinement_gel.name=Refinement Gel
+
+# TILES
+tile.ore_void.name=Void Ore
+
+# MACHINES
+tile.tile_incinerator.name=Pollution Incinerator
+tile.tile_power_infuser.name=Power Infuser
+
+# CONTAINERS
+container.power_infuser=Power Infuser
+
+# TABS
+itemGroup.pollutionplustab=Pollution Plus
+
+# JEI
+pollutionplus.jei.powerinfuser=Power Infuser
+
+# JEI RECIPES
+jei.recipe.processTime=Process Time:
+jei.recipe.pertickcost=Process Power:
+
+# JEI DISCRIPTIONS
+jei.description.incinerator=The incinerator is an powerful machine that deletes carbon, sulfur and dust from the mod "pollution of the realms" for an exchange of 2.5 million RF. \n \nThe incinerator has a range of 5 blocks and has a cool down of 10 seconds. \n \nAll these values can be changed in the config.

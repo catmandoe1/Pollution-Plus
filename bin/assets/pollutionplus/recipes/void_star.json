@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" A ","ABA"," A "],"key":{"A":{"item":"pollutionplus:ingot_void"},"B":{"item":"minecraft:diamond"}},"result":{"item": "pollutionplus:star_void"}}

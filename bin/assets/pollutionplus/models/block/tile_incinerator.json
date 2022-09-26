@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+		"particle": "pollutionplus:blocks/incinerator_side",
+        "down": "pollutionplus:blocks/incinerator_bottom",
+		"up": "pollutionplus:blocks/incinerator_top",
+		"north": "pollutionplus:blocks/incinerator_side",
+		"south": "pollutionplus:blocks/incinerator_side",
+		"west": "pollutionplus:blocks/incinerator_side",
+		"east": "pollutionplus:blocks/incinerator_side"
+    }
+}
