@@ -10,11 +10,14 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
+import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import s11.mod.containers.ContainerPowerInfuser;
 import s11.mod.gui.GuiPowerInfuser;
 import s11.mod.init.BlockInit;
 import s11.mod.integration.jei.powerinfuser.PowerInfuserRecipeCategory;
+import s11.mod.integration.jei.powerinfuser.PowerInfuserRecipeFactory;
 import s11.mod.integration.jei.powerinfuser.PowerInfuserRecipeWrapper;
 import s11.mod.recipes.PowerInfuserRecipes;
 
@@ -35,6 +38,7 @@ public class PollutionPlusJEI implements IModPlugin {
 	@Override
 	public void register(IModRegistry registry) {
 		helper = registry.getJeiHelpers();
+		IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
 				
 		registry.addIngredientInfo(new ItemStack(BlockInit.TILE_INCINERATOR), ItemStack.class, "jei.description.incinerator"); //dont change, works fine
 		
@@ -43,8 +47,10 @@ public class PollutionPlusJEI implements IModPlugin {
 			recipes.add(new PowerInfuserRecipeWrapper(entry.getKey(), entry.getValue()));
 		}
 		
-		registry.addRecipes(recipes, PowerInfuserRecipeCategory.UID);
+		//power infuser
+		registry.addRecipes(PowerInfuserRecipeFactory.recipes(), PowerInfuserRecipeCategory.UID);
 		registry.addRecipeClickArea(GuiPowerInfuser.class, 74, 36, 36, 15, PowerInfuserRecipeCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(BlockInit.TILE_POWER_INFUSER), PowerInfuserRecipeCategory.UID);
+		recipeTransferRegistry.addRecipeTransferHandler(ContainerPowerInfuser.class, PowerInfuserRecipeCategory.UID, 0, 1, 2, 36);
 	}
 }

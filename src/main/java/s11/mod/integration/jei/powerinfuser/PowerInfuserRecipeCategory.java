@@ -73,7 +73,7 @@ public class PowerInfuserRecipeCategory implements IRecipeCategory<PowerInfuserR
 		// the area of the progress arrow
         if (mouseX >= 21 && mouseX <= 56 && mouseY >= 8 && mouseY <= 22) {
             tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] {"jei.recipe.processTime"}) + TextFormatting.WHITE + " 1200 Ticks");
-            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.pertickcost"}) + TextFormatting.WHITE + PowerInfuserConfig.infuserOperationCost + " RF/t");
+            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.pertickcost"}) + " " + TextFormatting.WHITE + PowerInfuserConfig.infuserOperationCost + " RF/t");
         }
         return tooltip;
 	}
