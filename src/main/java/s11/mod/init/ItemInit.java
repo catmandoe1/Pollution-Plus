@@ -39,7 +39,7 @@ public class ItemInit {
 	public static final Item SPECK_DIAMOND = new DiamondSpeck("speck_diamond");
 	
 	// Tools
-	public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper");
+	//public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper"); replaced my hydraulic press
 	
 	// Other
 	public static final Item REFINED_CLUMP_VOID = new RefinedVoidClump("refined_clump_void");

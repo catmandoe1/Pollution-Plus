@@ -4,8 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+import s11.mod.containers.ContainerHydraulicPress;
 import s11.mod.containers.ContainerPowerInfuser;
+import s11.mod.gui.GuiHydraulicPress;
 import s11.mod.gui.GuiPowerInfuser;
+import s11.mod.objects.tileEntities.machines.TileHydraulicPress;
 import s11.mod.objects.tileEntities.machines.powerInfuser.TilePowerInfuser;
 import s11.mod.util.Reference;
 
@@ -17,6 +20,9 @@ public class GuiHandler implements IGuiHandler {
 		if (ID == Reference.GUI_POWERINFUSER) {
 			return new ContainerPowerInfuser(player.inventory, (TilePowerInfuser)world.getTileEntity(new BlockPos(x, y, z)));
 		}
+		if (ID == Reference.GUI_HYDRAULICPRESS) {
+			return new ContainerHydraulicPress(player.inventory, (TileHydraulicPress)world.getTileEntity(new BlockPos(x, y, z)));
+		}
 		return null;
 	}
 
@@ -25,6 +31,9 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		if (ID == Reference.GUI_POWERINFUSER) {
 			return new GuiPowerInfuser(player.inventory, (TilePowerInfuser)world.getTileEntity(new BlockPos(x, y, z)));
+		}
+		if (ID == Reference.GUI_HYDRAULICPRESS) {
+			return new GuiHydraulicPress(player.inventory, (TileHydraulicPress)world.getTileEntity(new BlockPos(x, y, z)));
 		}
 		return null;
 	}

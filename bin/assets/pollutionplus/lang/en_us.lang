@@ -19,15 +19,18 @@ tile.ore_void.name=Void Ore
 # MACHINES
 tile.tile_incinerator.name=Pollution Incinerator
 tile.tile_power_infuser.name=Power Infuser
+tile.tile_hydraulic_press.name=Hydraulic Press
 
 # CONTAINERS
 container.power_infuser=Power Infuser
+container.hydraulic_press=Hydraulic Press
 
 # TABS
 itemGroup.pollutionplustab=Pollution Plus
 
 # JEI
 pollutionplus.jei.powerinfuser=Power Infuser
+pollutionplus.jei.hydraulic_press=Hydraulic Press
 
 # JEI RECIPES
 jei.recipe.processTime=Process Time:

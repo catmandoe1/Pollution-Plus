@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import s11.mod.objects.blocks.BlockBase;
+import s11.mod.objects.blocks.unique.BlockHydraulicPress;
 import s11.mod.objects.blocks.unique.BlockIncinerator;
 import s11.mod.objects.blocks.unique.BlockPowerInfuser;
 import s11.mod.objects.blocks.unique.VoidOre;
@@ -18,4 +19,5 @@ public class BlockInit {
 	// Machines
 	public static final Block TILE_INCINERATOR = new BlockIncinerator("tile_incinerator", Material.IRON);
 	public static final Block TILE_POWER_INFUSER = new BlockPowerInfuser("tile_power_infuser", Material.IRON);
+	public static final Block TILE_HYDRAULIC_PRESS = new BlockHydraulicPress("tile_hydraulic_press", Material.IRON);
 }

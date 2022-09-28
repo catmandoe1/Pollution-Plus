@@ -1,17 +1,12 @@
-package s11.mod.objects.tileEntities.machines.powerInfuser;
-
-import javax.annotation.Nullable;
+package s11.mod.objects.tileEntities.machines;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -22,28 +17,25 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import s11.mod.config.IncineratorConfig;
-import s11.mod.config.PowerInfuserConfig;
-import s11.mod.objects.blocks.unique.BlockIncinerator;
-import s11.mod.objects.blocks.unique.BlockPowerInfuser;
-import s11.mod.recipes.PowerInfuserRecipes;
+import s11.mod.config.HydraulicPressConfig;
+import s11.mod.objects.blocks.unique.BlockHydraulicPress;
+import s11.mod.recipes.HydraulicPressRecipes;
 
-public class TilePowerInfuser extends TileEntity implements ITickable {
-	private final int maxCapacity = PowerInfuserConfig.infuserMaxCapacity;
+public class TileHydraulicPress extends TileEntity implements ITickable {
+	private final int maxCapacity = HydraulicPressConfig.MaxCapacity;
 	private final int maxTransfer = Integer.MAX_VALUE;
 	private final int maxExtract = Integer.MAX_VALUE;
 	private final EnergyStorage energy = new EnergyStorage(maxCapacity, maxTransfer, maxExtract);
 	
 	private ItemStackHandler handler = new ItemStackHandler(2);
 	private String customName;
-	    
-    private int progress = 0;
-    private final int MAXPROGRESS = 1200;
-    //private boolean active = false;
+	
+	private int progress = 0;
+    private final int MAXPROGRESS = 160;
     private boolean justUpdated = false;
     private boolean firstStart = false;
-        
-    public boolean hasCustomName() {
+		
+	public boolean hasCustomName() {
 		return this.customName != null && !this.customName.isEmpty();
 	}
 	
@@ -53,7 +45,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	
 	@Override
 	public ITextComponent getDisplayName() {
-		return this.hasCustomName() ? new TextComponentString(this.customName) : new TextComponentTranslation("container.power_infuser");
+		return this.hasCustomName() ? new TextComponentString(this.customName) : new TextComponentTranslation("container.hydraulic_press");
 	}
 
 	public boolean isUsableByPlayer(EntityPlayer player) {
@@ -85,7 +77,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		return compound;
 	}
 	
-	public boolean canInfuse() {
+	public boolean canCrush() {
 		if (((ItemStack)this.handler.getStackInSlot(0)).isEmpty()) {
 			return false;
 		} else {
@@ -108,10 +100,10 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	
 	public boolean canActivate() {
 		//addOrRemoveEnergy(100);
-		return energy.getEnergyStored() >= PowerInfuserConfig.infuserOperationCost;
+		return energy.getEnergyStored() >= HydraulicPressConfig.OperationCost;
 	}
 	
-	public boolean isInfusing() {
+	public boolean isCrushing() {
 		return progress > 0; 
 	}
 	
@@ -128,15 +120,15 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		}
 		
 		if (firstStart == true) {
-			updateState(isInfusing());
+			updateState(isCrushing());
 			firstStart = false;
 		}
 		
 		ItemStack input = handler.getStackInSlot(0);
 		ItemStack output = handler.getStackInSlot(1);
 				
-		if(canActivate() && canInfuse()) {
-			addOrRemoveEnergy((~(Math.abs(PowerInfuserConfig.infuserOperationCost - 1)))); //removes energy per tick
+		if(canActivate() && canCrush()) {
+			addOrRemoveEnergy((~(Math.abs(HydraulicPressConfig.OperationCost - 1)))); //removes energy per tick
 			progress ++;
 			
 			if (progress >= MAXPROGRESS) {
@@ -162,7 +154,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	private ItemStack getRecipe(ItemStack input) {
-		return PowerInfuserRecipes.getInstance().getRecipeResult(input);
+		return HydraulicPressRecipes.getInstance().getRecipeResult(input);
 	}
 	
 	@Override
@@ -287,7 +279,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	
 	private void updateState(boolean isPowered) {
 		if (world.getBlockState(pos) != null) {
-			world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockPowerInfuser.ACTIVE, isPowered));
+			world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockHydraulicPress.ACTIVE, isPowered));
 		}
 	}
 }
