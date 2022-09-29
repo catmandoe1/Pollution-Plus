@@ -11,7 +11,7 @@ import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
-import mezz.jei.recipes.RecipeTransferRegistry;
+//import mezz.jei.recipes.RecipeTransferRegistry; - removed because it broke builds
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import s11.mod.containers.ContainerHydraulicPress;

@@ -7,10 +7,10 @@
         "powered": {
 			"true": {
 				"textures": {
-					"north": "pollutionplus:blocks/incinerator_side_powered",
-					"south": "pollutionplus:blocks/incinerator_side_powered",
-					"west": "pollutionplus:blocks/incinerator_side_powered",
-					"east": "pollutionplus:blocks/incinerator_side_powered"
+					"north": "pollutionplus:blocks/incinerator/incinerator_side_powered",
+					"south": "pollutionplus:blocks/incinerator/incinerator_side_powered",
+					"west": "pollutionplus:blocks/incinerator/incinerator_side_powered",
+					"east": "pollutionplus:blocks/incinerator/incinerator_side_powered"
                 }
 			},
 			"false": {}

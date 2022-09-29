@@ -22,7 +22,7 @@
         "active": {
 			"true": {
 				"textures": {
-					"north": "pollutionplus:blocks/placeholders/placeholder_front_on"
+					"north": "pollutionplus:blocks/power_infuser/power_infuser_front_activated"
 				}
 			},
 			"false": {}

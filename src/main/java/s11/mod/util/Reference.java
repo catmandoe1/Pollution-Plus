@@ -3,7 +3,7 @@ package s11.mod.util;
 public class Reference {
 	public static final String MODID = "pollutionplus";
 	public static final String NAME = "Pollution Plus";
-	public static final String VERSION = "1.12.2-1.4.1.0";
+	public static final String VERSION = "1.12.2-1.4.2.0";
 	public static final String DEPENDENCIES = "required-after:adpother@[1.12.2-1,)";
 	
 	public static final String CLIENT = "s11.mod.proxy.ClientProxy";

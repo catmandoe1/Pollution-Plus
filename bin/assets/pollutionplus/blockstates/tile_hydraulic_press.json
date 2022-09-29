@@ -22,7 +22,7 @@
         "active": {
 			"true": {
 				"textures": {
-					"north": "pollutionplus:blocks/placeholders/placeholder_front_on"
+					"north": "pollutionplus:blocks/hydraulic_press/hydraulic_press_front_activated"
 				}
 			},
 			"false": {}
