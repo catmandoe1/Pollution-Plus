@@ -16,7 +16,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import s11.mod.config.PowerInfuserConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.init.BlockInit;
 import s11.mod.util.Reference;
 import s11.mod.util.TextHelper;
@@ -67,16 +67,16 @@ public class PowerInfuserRecipeCategory implements IRecipeCategory<PowerInfuserR
 		
 	}
 	
-	@Override
-	public List<String> getTooltipStrings(int mouseX, int mouseY) {
-		List<String> tooltip = Lists.newArrayList();
-		// the area of the progress arrow
-        if (mouseX >= 21 && mouseX <= 56 && mouseY >= 8 && mouseY <= 22) {
-            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] {"jei.recipe.processTime"}) + TextFormatting.WHITE + " 1200 Ticks");
-            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.pertickcost"}) + " " + TextFormatting.WHITE + PowerInfuserConfig.infuserOperationCost + " RF/t");
-        }
-        return tooltip;
-	}
+//	@Override
+//	public List<String> getTooltipStrings(int mouseX, int mouseY) {
+//		List<String> tooltip = Lists.newArrayList();
+//		// the area of the progress arrow
+//        if (mouseX >= 21 && mouseX <= 56 && mouseY >= 8 && mouseY <= 22) {
+//            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] {"jei.recipe.processTime"}) + TextFormatting.WHITE + " 1200 Ticks");
+//            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.base_pertick_cost"}) + " " + TextFormatting.WHITE + PollutionPlusConfig.Machines.powerInfuser.baseOperationCost + " RF/t");
+//        }
+//        return tooltip;
+//	}
 
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, PowerInfuserRecipeWrapper recipeWrapper, IIngredients ingredients) {

@@ -9,9 +9,9 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import s11.mod.config.PowerInfuserConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.containers.ContainerPowerInfuser;
-import s11.mod.objects.tileEntities.machines.powerInfuser.TilePowerInfuser;
+import s11.mod.objects.tileEntities.machines.TilePowerInfuser;
 import s11.mod.util.Reference;
 
 public class GuiPowerInfuser extends GuiContainer {
@@ -32,7 +32,7 @@ public class GuiPowerInfuser extends GuiContainer {
 		this.drawDefaultBackground(); //the black overlay
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		List<String> text = Lists.newArrayList(TextFormatting.LIGHT_PURPLE + "Energy Stored:" + TextFormatting.WHITE + " " + Integer.toString(tileentity.getEnergyStored()) + " / " + Integer.toString(tileentity.getMaxEnergyStored()) + " RF", 
-				TextFormatting.LIGHT_PURPLE + "Process Power:" + TextFormatting.WHITE + " " + Integer.toString(PowerInfuserConfig.infuserOperationCost) + " RF/t");
+				TextFormatting.LIGHT_PURPLE + "Process Power:" + TextFormatting.WHITE + " " + Integer.toString(tileentity.getPowerUse()) + " RF/t");
 		drawTooltip(text, mouseX, mouseY, 8, 6, 16, 74);
 		this.renderHoveredToolTip(mouseX, mouseY);
 	}
@@ -54,10 +54,8 @@ public class GuiPowerInfuser extends GuiContainer {
 		this.mc.getTextureManager().bindTexture(TEXTURES);
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 		
-		if (this.tileentity.isInfusing()) {
-			int infusingScale = getInfusionProgressScaled(36);
-			this.drawTexturedModalRect(this.guiLeft + 74, this.guiTop + 34, 176, 2, infusingScale + 1, 17);
-		}
+		int infusingScale = getInfusionProgressScaled(37);
+		this.drawTexturedModalRect(this.guiLeft + 74, this.guiTop + 34, 176, 2, infusingScale, 17);
 		
 		int energyScale = getEnergyLeftScaled(74);
 

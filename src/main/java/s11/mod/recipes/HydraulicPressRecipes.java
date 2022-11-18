@@ -13,7 +13,7 @@ import s11.mod.init.ItemInit;
 
 public class HydraulicPressRecipes {
 	private static final HydraulicPressRecipes INSTANCE = new HydraulicPressRecipes();
-	private final Map<Item, Item> crushingList = new HashMap<Item, Item>();
+	private final Map<Item, ItemStack> crushingList = new HashMap<Item, ItemStack>();
 	
 	public static HydraulicPressRecipes getInstance() {
 		return INSTANCE;
@@ -23,8 +23,10 @@ public class HydraulicPressRecipes {
 		addRecipe(Item.getItemFromBlock(Blocks.STONE), Item.getItemFromBlock(Blocks.COBBLESTONE));
 		addRecipe(Item.getItemFromBlock(Blocks.COBBLESTONE), Item.getItemFromBlock(Blocks.GRAVEL));
 		addRecipe(Item.getItemFromBlock(Blocks.GRAVEL), Item.getItemFromBlock(Blocks.SAND));
+		//addRecipe(Item.getItemFromBlock(Blocks.IRON_BLOCK), Items.IRON_INGOT, 9);
 		oreDictAddRecipe(OreDictionary.getOres("ingotIron"), ItemInit.DUST_IRON);
 		oreDictAddRecipe(OreDictionary.getOres("ingotGold"), ItemInit.DUST_GOLD);
+		addRecipe(Items.DIAMOND, ItemInit.SPECK_DIAMOND, 8);
 	}
 	
 	public void oreDictAddRecipe(NonNullList<ItemStack> input, Item output) {
@@ -40,7 +42,11 @@ public class HydraulicPressRecipes {
 	}
 	
 	public void addRecipe(Item input, Item output) {
-		crushingList.put(input, output);
+		addRecipe(input, output, 1);
+	}
+	
+	public void addRecipe(Item input, Item output, int outputAmount) {
+		crushingList.put(input, new ItemStack(output, outputAmount));
 	}
 	
 	public ItemStack getRecipeResult(ItemStack input) {
@@ -50,13 +56,13 @@ public class HydraulicPressRecipes {
 		
 		Item item = input.getItem();
 		if (crushingList.containsKey(item)) {
-			return new ItemStack(crushingList.get(item));
+			return crushingList.get(item);
 		} else {
 			return ItemStack.EMPTY;
 		}
 	}
 	
-	public Map<Item, Item> getRecipes() {
+	public Map<Item, ItemStack> getRecipes() {
 		return crushingList;
 	}
 }

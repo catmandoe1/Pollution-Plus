@@ -10,9 +10,11 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -32,20 +34,17 @@ public class BlockHydraulicPress extends BlockBase {
 	public static final PropertyBool ACTIVE = PropertyBool.create("active");
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-	public BlockHydraulicPress(String name, Material material) {
-		super(name, material);
-		this.setHardness(3.0F);
-		this.setResistance(10.0F);
-		setHarvestLevel("pickaxe", 0);
+	public BlockHydraulicPress(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
+		super(name, material, resistance, resistance, harvestTool, harvestLevel);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(ACTIVE, false));
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (PlayerPressing.isCrtlDown()) {
-			tooltip.add("Uses power to crush things into small pieces");;
+			tooltip.add(I18n.format("tile.tile_hydraulic_press.tooltip"));;
 		} else {
-			tooltip.add(TextFormatting.RED + "Hold Ctrl for help");
+			tooltip.add(TextFormatting.RED + I18n.format("global.ctrl_help"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
@@ -85,10 +84,21 @@ public class BlockHydraulicPress extends BlockBase {
 		return new TileHydraulicPress();
 	}
 	
+	//drops items in the the inventory
+		@Override
+		public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+			TileHydraulicPress te = (TileHydraulicPress)worldIn.getTileEntity(pos);
+			
+			for (int i = 0; i < te.getInventoryHandler().getSlots(); i++) {
+				InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), te.getInventoryHandler().getStackInSlot(i));
+			}
+			super.breakBlock(worldIn, pos, state);
+		}
+	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!worldIn.isRemote) {
-			playerIn.openGui(Main.instance, Reference.GUI_HYDRAULICPRESS, worldIn, pos.getX(), pos.getY(), pos.getZ());
+			playerIn.openGui(Main.instance, Reference.GuiIds.HYDRAULIC_PRESS.getIndex(), worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
 	
 		return true;

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["AAA","BCB","AAA"],"key":{ "A":{"item":"minecraft:iron_ingot"}, "B":{"item":"minecraft:furnace"}, "C":{"item":"minecraft:hopper"}},"result":{"item":"pollutionplus:tile_alloy_furnace"}}

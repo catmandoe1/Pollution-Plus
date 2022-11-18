@@ -16,9 +16,9 @@ public class HydraulicPressRecipeWrapper implements IRecipeWrapper {
 	@Nonnull
     private final Item itemInput;
     @Nonnull
-    private final Item itemOutput;
+    private final ItemStack itemOutput;
     
-    public HydraulicPressRecipeWrapper(Item input, Item output) {
+    public HydraulicPressRecipeWrapper(Item input, ItemStack output) {
     	this.itemInput = input;
     	this.itemOutput = output;
     }
@@ -29,7 +29,7 @@ public class HydraulicPressRecipeWrapper implements IRecipeWrapper {
 		itemStacks.add(new ItemStack(itemInput));
 		
 		ingredients.setInputs(VanillaTypes.ITEM, itemStacks);
-        ingredients.setOutput(VanillaTypes.ITEM, new ItemStack(itemOutput));
+        ingredients.setOutput(VanillaTypes.ITEM, itemOutput);
 	}
 
 }

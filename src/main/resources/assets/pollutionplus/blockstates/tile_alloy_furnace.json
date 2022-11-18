@@ -1,0 +1,31 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "pollutionplus:tile_alloy_furnace"
+	},
+    "variants": {
+		"inventory": [
+            {}
+        ],
+		"facing": {
+			"north": {},
+            "east": {
+                "y": 90
+            },
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            }
+		},
+        "active": {
+			"true": {
+				"textures": {
+					"north": "pollutionplus:blocks/alloy_furnace/alloy_furnace_front_activated"
+				}
+			},
+			"false": {}
+		}
+    }
+}

@@ -7,18 +7,25 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import s11.mod.config.PollutionPlusConfig;
+import s11.mod.init.ItemInit;
 
 public class PowerInfuserRecipes {
 	private static final PowerInfuserRecipes INSTANCE = new PowerInfuserRecipes();
 	private final Map<Item, Item> infusingList = new HashMap<Item, Item>();
+	private final Map<Item, Integer> powerList = new HashMap<Item, Integer>();
 	
 	public static PowerInfuserRecipes getInstance( ) {
 		return INSTANCE;
 	}
 	
 	private PowerInfuserRecipes() {
-		addInfuserRecipe(Items.APPLE, Items.GOLDEN_APPLE);
-		addInfuserRecipe(Items.NETHER_STAR, Items.NETHERBRICK);
+//		addInfuserRecipe(Items.APPLE, Items.GOLDEN_APPLE);
+//		addInfuserRecipe(Items.NETHER_STAR, Items.NETHERBRICK);
+//		addInfuserRecipe(Items.BEEF, Items.COOKED_BEEF, 200);
+		addInfuserRecipe(ItemInit.SHARD_VOID, ItemInit.SHARD_VOID_INFUSED, 300);
+		addInfuserRecipe(ItemInit.SHARD_REFINED_VOID, ItemInit.SHARD_REFINED_VOID_INFUSED);
+		addInfuserRecipe(ItemInit.STAR_VOID_OFF, ItemInit.STAR_VOID, 2000);
 	}
 	
 	public void oreDictAddRecipe(NonNullList<ItemStack> input, Item output) {
@@ -30,9 +37,12 @@ public class PowerInfuserRecipes {
 	}
 	
 	public void addInfuserRecipe(Item input, Item output) {
-		//if (!(input != null) && !(output != null)) {
-			infusingList.put(input, output);
-		//}
+		addInfuserRecipe(input, output, PollutionPlusConfig.Machines.powerInfuser.baseOperationCost);
+	}
+	
+	public void addInfuserRecipe(Item input, Item output, int powerUse) {
+		infusingList.put(input, output);
+		powerList.put(input, powerUse);
 	}
 	
 	public ItemStack getRecipeResult(ItemStack input) {
@@ -48,7 +58,24 @@ public class PowerInfuserRecipes {
 		}
 	}
 	
+	public int getPowerUse(ItemStack input) {
+		if (input.isEmpty()) {
+			return PollutionPlusConfig.Machines.powerInfuser.baseOperationCost;
+		}
+		
+		Item item = input.getItem();
+		if (powerList.containsKey(item)) {
+			return powerList.get(item);
+		} else {
+			return PollutionPlusConfig.Machines.powerInfuser.baseOperationCost;
+		}
+	}
+	
 	public Map<Item, Item> getRecipes() {
 		return infusingList;
+	}
+	
+	public Map<Item, Integer> getPowerRecipes() {
+		return powerList;
 	}
 }

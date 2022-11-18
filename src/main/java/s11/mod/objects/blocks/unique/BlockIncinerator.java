@@ -8,37 +8,37 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import s11.mod.config.IncineratorConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.BlockBase;
-import s11.mod.objects.tileEntities.machines.incinerator.TileIncinerator;
+import s11.mod.objects.tileEntities.machines.TileIncinerator;
 import s11.mod.util.PlayerPressing;
 
 public class BlockIncinerator extends BlockBase {
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
-	//public static final PropertyBool HASREDSTONE = PropertyBool.create("has_redstone");
 	
-	public BlockIncinerator(String name, Material material) {
-		super(name, material);
-		this.setHardness(3.0F);
-		this.setResistance(10.0F);
-		setHarvestLevel("pickaxe", 0);
+	public BlockIncinerator(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
+		super(name, material, resistance, resistance, harvestTool, harvestLevel);
 		setDefaultState(this.blockState.getBaseState().withProperty(this.POWERED, false));
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (PlayerPressing.isCrtlDown()) {
-			tooltip.add("Deletes all pollution around the incinerator in a 5 block radius for " + (float)(IncineratorConfig.incineratorPowerUse) / 1000000 + "MRF");
-			tooltip.add(TextFormatting.RED + "Appling redstone power to the incinerator turns it off");
+			tooltip.add(I18n.format("tile.tile_incinerator.tooltip1") + " " + (float)(PollutionPlusConfig.Machines.incinerator.powerUse) / 1000000 + "MRF");
+			tooltip.add(TextFormatting.RED + I18n.format("tile.tile_incinerator.tooltip2"));
 		} else {
-			tooltip.add(TextFormatting.RED + "Hold Ctrl for help");
+			tooltip.add(TextFormatting.RED + I18n.format("global.ctrl_help"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
@@ -47,7 +47,7 @@ public class BlockIncinerator extends BlockBase {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, POWERED);
 	}
-	
+		
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i= state.getValue(POWERED) ? 1 : 0;

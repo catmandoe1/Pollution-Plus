@@ -7,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -17,12 +18,13 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import s11.mod.config.HydraulicPressConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.unique.BlockHydraulicPress;
 import s11.mod.recipes.HydraulicPressRecipes;
+import s11.mod.util.PollutionSounds;
 
 public class TileHydraulicPress extends TileEntity implements ITickable {
-	private final int maxCapacity = HydraulicPressConfig.MaxCapacity;
+	private final int maxCapacity = PollutionPlusConfig.Machines.hydraulicPress.maxCapacity;
 	private final int maxTransfer = Integer.MAX_VALUE;
 	private final int maxExtract = Integer.MAX_VALUE;
 	private final EnergyStorage energy = new EnergyStorage(maxCapacity, maxTransfer, maxExtract);
@@ -100,21 +102,22 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 	
 	public boolean canActivate() {
 		//addOrRemoveEnergy(100);
-		return energy.getEnergyStored() >= HydraulicPressConfig.OperationCost;
+		return energy.getEnergyStored() >= PollutionPlusConfig.Machines.hydraulicPress.operationCost;
 	}
 	
 	public boolean isCrushing() {
 		return progress > 0; 
 	}
 	
-	@Override
-	public void markDirty() {
-		super.markDirty();
+	public void playRunningSound() {
+		if (!PollutionPlusConfig.GeneralConfig.machineVolume) {
+			return;
+		}
+		world.playSound(null, pos, PollutionSounds.BLOCK_HYDRAULIC_PRESS_RUNNING, SoundCategory.BLOCKS, 0.25F, 1.0F);
 	}
 	
 	@Override
 	public void update() {
-		// TODO finish
 		if (world.isRemote) {
 			return;
 		}
@@ -128,7 +131,12 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 		ItemStack output = handler.getStackInSlot(1);
 				
 		if(canActivate() && canCrush()) {
-			addOrRemoveEnergy((~(Math.abs(HydraulicPressConfig.OperationCost - 1)))); //removes energy per tick
+			markDirty();
+			addOrRemoveEnergy(Math.abs(PollutionPlusConfig.Machines.hydraulicPress.operationCost) * -1); //removes energy per tick
+			//super easy and simple way of playing sounds with lots of problems!
+			if (progress % 40 == 0) {
+				playRunningSound();
+			}
 			progress ++;
 			
 			if (progress >= MAXPROGRESS) {
@@ -147,9 +155,17 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 				justUpdated = true;
 			}
 			
-		} else if(justUpdated) {
-			updateState(false);
-			justUpdated = false;
+		} else {
+			if (!canCrush() || input.isEmpty()) {
+				if (progress > 1) {
+					progress = progress - 2;
+				}
+			}
+			
+			if(justUpdated) {
+				updateState(false);
+				justUpdated = false;
+			}
 		}
 	}
 	
@@ -281,5 +297,9 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 		if (world.getBlockState(pos) != null) {
 			world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockHydraulicPress.ACTIVE, isPowered));
 		}
+	}
+
+	public ItemStackHandler getInventoryHandler() {
+		return handler;
 	}
 }

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["AAA","ABA","AAA"],"key":{ "A":{"item":"minecraft:diamond"}, "B":{"item":"pollutionplus:shard_refined_void_infused"}},"result":{"item":"pollutionplus:tile_diamond_powered_filter"}}

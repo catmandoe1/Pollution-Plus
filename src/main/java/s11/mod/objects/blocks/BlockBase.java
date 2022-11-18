@@ -12,17 +12,25 @@ import s11.mod.util.interfaces.IHasModel;
 
 public class BlockBase extends Block implements IHasModel {
 
-	public BlockBase(String name, Material material) {
+	/**
+	 * 
+	 * @param name
+	 * @param material
+	 * @param hardness
+	 * @param resistance
+	 * @param harvestTool
+	 * @param harvestLevel Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
+	 */
+	public BlockBase(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
 		super(material);
 		//setRegistryName(name);
 		setTranslationKey(name);
 		setRegistryName(name);
+		setHardness(hardness);
+		setResistance(resistance);
+		setHarvestLevel(harvestTool, harvestLevel);
+
 		setCreativeTab(Main.pollutionplustab);
-//		if(name == "ore_void") {
-//			   this.setHardness(3.0F);
-//			   this.setResistance(15.0F);
-//			   this.setHarvestLevel("pickaxe", 3);
-//		}
 		
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import s11.mod.objects.tileEntities.machines.powerInfuser.TilePowerInfuser;
+import s11.mod.objects.tileEntities.machines.TilePowerInfuser;
 import s11.mod.recipes.PowerInfuserRecipes;
 
 public class ContainerPowerInfuser extends Container {

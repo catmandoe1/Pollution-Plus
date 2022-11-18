@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "pollutionplus:void_powered_filter_off"
+	},
+    "variants": {
+		"inventory": [
+            {}
+        ],
+        "active": {
+			"true": {
+				"model": "pollutionplus:void_powered_filter_on"
+			},
+			"false": {}
+		}
+    }
+}

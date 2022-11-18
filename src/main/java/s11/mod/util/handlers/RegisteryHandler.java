@@ -11,7 +11,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import s11.mod.Main;
 import s11.mod.init.BlockInit;
 import s11.mod.init.ItemInit;
-import s11.mod.objects.tileEntities.machines.incinerator.TileIncinerator;
+import s11.mod.objects.tileEntities.machines.TileIncinerator;
+import s11.mod.util.PollutionSounds;
 import s11.mod.util.interfaces.IHasModel;
 import s11.mod.world.gen.WorldGenCustomOres;
 
@@ -44,10 +45,11 @@ public class RegisteryHandler {
 	
 	public static void initRegistries( ) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+		PollutionSounds.registerSounds();
 	}
 	
 	public static void otherRegisteries( ) {
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
-		TileEntityHandler.registerTileEntities(); //TODO fix some time if possible
+		TileEntityHandler.registerTileEntities();
 	}
 }

@@ -15,7 +15,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import s11.mod.config.HydraulicPressConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.init.BlockInit;
 import s11.mod.util.Reference;
 import s11.mod.util.TextHelper;
@@ -67,7 +67,7 @@ public class HydraulicPressRecipeCatergory implements IRecipeCategory<HydraulicP
 		// the area of the progress arrow
         if (mouseX >= 21 && mouseX <= 56 && mouseY >= 8 && mouseY <= 22) {
             tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] {"jei.recipe.processTime"}) + TextFormatting.WHITE + " 160 Ticks");
-            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.pertickcost"}) + " " + TextFormatting.WHITE + HydraulicPressConfig.OperationCost + " RF/t");
+            tooltip.add(TextFormatting.LIGHT_PURPLE + TextHelper.localize(new String[] { "jei.recipe.pertickcost"}) + " " + TextFormatting.WHITE + PollutionPlusConfig.Machines.hydraulicPress.operationCost + " RF/t");
         }
         return tooltip;
 	}

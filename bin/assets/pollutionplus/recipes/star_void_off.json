@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" A ","ABA"," A "],"key":{ "A":{"item":"pollutionplus:ingot_refined_void"}, "B":{"item":"pollutionplus:primed_binding_agent"}},"result":{"item":"pollutionplus:star_void_off"}}
