@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "pollutionplus:items/star_void"
-    }
-}

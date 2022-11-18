@@ -1,1 +1,0 @@
-{"type":"minecraft:crafting_shaped","pattern":["AB ","BB "],"key":{ "A":{"item":"pollutionplus:primed_binding_agent"}, "B":{"item":"pollutionplus:shard_refined_void"}},"result":{"item":"pollutionplus:refined_clump_void"}}

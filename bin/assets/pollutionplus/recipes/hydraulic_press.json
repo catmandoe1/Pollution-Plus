@@ -1,1 +1,0 @@
-{"type":"minecraft:crafting_shaped","pattern":["AAA","BCB","AAA"],"key":{ "A":{"type":"forge:ore_dict","ore":"ingotSteel"}, "B":{"item":"minecraft:iron_ingot"}, "C":{"item":"minecraft:sticky_piston"}},"result":{"item":"pollutionplus:tile_hydraulic_press"}}
