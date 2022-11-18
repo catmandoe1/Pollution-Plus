@@ -155,7 +155,7 @@ public class PollutionPlusConfig {
 			public int filterMaxCapacity;
 			
 			@Name("Filter's Filtration Speed")
-			@Comment("The amount of ticks before the filter \"filters\" the pollution in it.")
+			@Comment("The amount of ticks between deleting the pollution inside the filter.")
 			@RangeInt(min = 1)
 			@Config.RequiresWorldRestart
 			public int filterSpeed;

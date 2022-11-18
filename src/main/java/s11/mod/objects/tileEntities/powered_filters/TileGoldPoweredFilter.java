@@ -28,6 +28,7 @@ public class TileGoldPoweredFilter extends TileEntity implements ITickable {
 	private boolean isRunning = false;
 	private boolean firstStart = true;
 	private boolean justUpdated = false;
+	private boolean isCooldown = false;
 	
 	@Override
 	public void update() {
@@ -40,17 +41,29 @@ public class TileGoldPoweredFilter extends TileEntity implements ITickable {
 			updateState(isRunning);
 		}
 		
-		// deletes pollution within the filter when powered and redstone activated
+		// deletes pollution within the filter when powered
 		if (canRun()) {
 			useTickPower();
 			isRunning = true;
-			if (counter == PollutionPlusConfig.PoweredFilters.gold.filterSpeed) {
-				counter = 0;
+			
+			if (isCooldown) {
+				counter++;
+				if (counter >= PollutionPlusConfig.PoweredFilters.gold.filterSpeed) {
+					counter = 0;
+					isCooldown = false;
+				}
+			}
+			
+			if (!isCooldown) {
 				List pollutants = getWorld().getEntitiesWithinAABB(EntityPollutant.class, getFilterBB());
-				
-				// kills all the pollution in the filter
-				for (int i = 0; i < pollutants.size(); i++) {
-					((EntityPollutant) pollutants.get(i)).setDead();
+				if (pollutants.size() > 0) {
+					isCooldown = true;
+					counter = 1;
+					
+					// kills all the pollution in the filter
+					for (int i = 0; i < pollutants.size(); i++) {
+						((EntityPollutant) pollutants.get(i)).setDead();
+					}
 				}
 			}
 			
@@ -58,8 +71,6 @@ public class TileGoldPoweredFilter extends TileEntity implements ITickable {
 				updateState(isRunning);
 				justUpdated = true;
 			}
-			
-			counter++;
 			
 		} else {
 			isRunning = false;
@@ -76,6 +87,9 @@ public class TileGoldPoweredFilter extends TileEntity implements ITickable {
 		super.readFromNBT(compound);
 		
 		setEnergy(compound.getInteger("energy"));
+		counter = compound.getInteger("counter");
+		isCooldown = compound.getBoolean("isCooldown");
+		
 	}
 	
 	public boolean isRunning() {
@@ -87,6 +101,8 @@ public class TileGoldPoweredFilter extends TileEntity implements ITickable {
 		super.writeToNBT(compound);
 		
 		compound.setInteger("energy", this.energy.getEnergyStored());
+		compound.setInteger("counter", this.counter);
+		compound.setBoolean("isCooldown", this.isCooldown);
 			
 		return compound;
 	}

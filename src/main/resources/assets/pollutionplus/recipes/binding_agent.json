@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"item":"pollutionplus:dust_iron"}, "B":{"item":"minecraft:slime_ball"}, "C":{"item":"pollutionplus:speck_diamond"}},"result":{"item":"pollutionplus:binding_agent"}}
+{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"type":"forge:ore_dict","ore":"dustIron"}, "B":{"item":"minecraft:slime_ball"}, "C":{"type":"forge:ore_dict","ore":"tinyDustDiamond"}},"result":{"item":"pollutionplus:binding_agent"}}
