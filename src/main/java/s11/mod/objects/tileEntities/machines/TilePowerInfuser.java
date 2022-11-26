@@ -134,14 +134,14 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	}
 	
 	public void playRunningSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machineVolume) {
+		if (!PollutionPlusConfig.GeneralConfig.machines.powerInfuserSound) {
 			return;
 		}
-		world.playSound(null, pos, PollutionSounds.BLOCK_POWER_INFUSER_RUNNING, SoundCategory.BLOCKS, 1.0F, 1.0F);
+		world.playSound(null, pos, PollutionSounds.BLOCK_POWER_INFUSER_RUNNING, SoundCategory.BLOCKS, 0.25F, 1.0F);
 	}
 	
 	public void playRecipeCompleteSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machineVolume) {
+		if (!PollutionPlusConfig.GeneralConfig.machines.powerInfuserSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_POWER_INFUSER_RECIPE_COMPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -153,8 +153,6 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		if (world.isRemote) {
 			return;
 		}
-		
-		
 		
 		if (firstStart == true) {
 			updateState(isInfusing());

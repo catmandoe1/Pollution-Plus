@@ -30,7 +30,7 @@ public class ItemInit {
 	public static final Item SPECK_DIAMOND = new ItemBase("speck_diamond");
 	
 	// Tools
-	//public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper"); replaced by hydraulic press (ish)
+	//public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper"); replaced by hydraulic press
 	
 	// Infused
 	public static final Item STAR_VOID = new VoidStar("star_void");

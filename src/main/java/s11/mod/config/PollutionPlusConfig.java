@@ -10,6 +10,8 @@ import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import s11.mod.util.Reference;
 
 @EventBusSubscriber
@@ -19,18 +21,38 @@ public class PollutionPlusConfig {
 	@Config(modid = Reference.MODID, name = "pollutionplus/general")
 	public static class GeneralConfig {
 		
-		@Config.Name("Machine volume")
-		@Config.Comment("Turns off or on all machine volume (such as the incinerator zap etc.).")
-		public static boolean machineVolume = true;
+//		@Config.Name("All Machine Volume")
+//		@Config.Comment("Turns off or on all machine volume (such as the incinerator zap etc.).")
+//		public static boolean machineVolume = true;
 		
-//		@Name("Disable Hydraulic Press")
-//		public static boolean disableHydraulicPress = false;
-//		
-//		@Name("Disable Power Infuser")
-//		public static boolean disablePowerInfuser = false;
-//		
-//		@Name("Disable Alloy Furnace")
-//		public static boolean disableAlloyFurnace = false;
+		@SideOnly(Side.CLIENT)
+		@LangKey("config.machine_sounds")
+		public static MachineSounds machines = new MachineSounds(true, true, true, true);
+		
+		public static class MachineSounds {
+			@Name("Hydraulic Press Sound")
+			@Comment("Turns on and off all sounds for this machine")
+			public boolean hydraulicPressSound;
+			
+			@Name("Power Infuser Sound")
+			@Comment("Turns on and off all sounds for this machine")
+			public boolean powerInfuserSound;
+			
+			@Name("Incinerator Sound")
+			@Comment("Turns on and off all sounds for this machine")
+			public boolean incineratorSound;
+			
+			@Name("Alloy Furnace Sound")
+			@Comment("Turns on and off all sounds for this machine")
+			public boolean alloyFurnaceSound;
+
+			MachineSounds(boolean hydraulicPressSound, boolean powerInfuserSound, boolean incineratorSound, boolean alloyFurnaceSound) {
+				this.hydraulicPressSound = hydraulicPressSound; 
+				this.powerInfuserSound = powerInfuserSound;
+				this.incineratorSound = incineratorSound;
+				this.alloyFurnaceSound = alloyFurnaceSound;
+			}
+		}
 	}
 	
 	@LangKey("config.machines")

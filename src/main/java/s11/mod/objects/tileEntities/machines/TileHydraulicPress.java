@@ -110,7 +110,7 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 	}
 	
 	public void playRunningSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machineVolume) {
+		if (!PollutionPlusConfig.GeneralConfig.machines.hydraulicPressSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_HYDRAULIC_PRESS_RUNNING, SoundCategory.BLOCKS, 0.25F, 1.0F);

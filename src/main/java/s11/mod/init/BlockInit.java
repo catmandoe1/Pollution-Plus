@@ -20,7 +20,7 @@ import s11.mod.objects.blocks.unique.powered_filters.BlockVoidPoweredFilter;
 public class BlockInit {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();	
 	// Blocks Sparingly found around Y5 - Y30
-	public static final Block ORE_VOID = new BlockToolTip("ore_void", Material.IRON, 3, 15, "pickaxe", 3, I18n.format("tile.ore_void.tooltip"));
+	public static final Block ORE_VOID = new BlockToolTip("ore_void", Material.IRON, 3, 15, "pickaxe", 3, "tile.ore_void.tooltip");
 	
 	// Machines
 	public static final Block TILE_INCINERATOR = new BlockIncinerator("tile_incinerator", Material.IRON, 3, 10, "pickaxe", 0);

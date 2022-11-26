@@ -43,7 +43,7 @@ public class TileIncinerator extends TileEntity implements ITickable {
 	private boolean hasRedstone;
 	
 	public void playWorkSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machineVolume) {
+		if (!PollutionPlusConfig.GeneralConfig.machines.incineratorSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_INCINERATOR_WORK, SoundCategory.BLOCKS, 1.0F, 1.0F);

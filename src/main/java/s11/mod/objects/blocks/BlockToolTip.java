@@ -9,6 +9,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import s11.mod.util.TextHelper;
 
 public class BlockToolTip extends BlockBase {
 	
@@ -21,7 +22,7 @@ public class BlockToolTip extends BlockBase {
 
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(TextFormatting.GOLD + toolTip);
+		tooltip.add(TextFormatting.GOLD + TextHelper.getLang(toolTip));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 }

@@ -133,7 +133,7 @@ public class TileAlloyFurnace extends TileEntity implements ITickable{
 //	}
 	
 	public void playRecipeCompleteSound() {
-		if (PollutionPlusConfig.GeneralConfig.machineVolume) {
+		if (PollutionPlusConfig.GeneralConfig.machines.alloyFurnaceSound) {
 			world.playSound(null, pos, PollutionSounds.BLOCK_ALLOY_FURNACE_RECIPE_COMPLETE, SoundCategory.BLOCKS, 0.1F, 1.0F);
 		}
 	}

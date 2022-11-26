@@ -74,6 +74,7 @@ config.hydraulic_press=Hydraulic Press
 config.power_infuser=Power Infuser
 config.incinerator=Incinerator
 config.alloy_furnace=Alloy Furnace
+config.machine_sounds=Machine Sounds
 
 # CONFIG - POWERED FILTERS
 config.powered_filters=Powered Filters
