@@ -3,6 +3,7 @@ buildscript {
         jcenter()
         maven { url = "https://files.minecraftforge.net/maven" }
 		maven { url 'https://plugins.gradle.org/m2/' }
+		 maven { url = "http://maven.covers1624.net" }
 		
     }
     dependencies {
@@ -13,7 +14,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.12.2-2.0.0.0"
+version = "1.12.2-2.0.2.0"
 group = "s11" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "PollutionPlus"
 
@@ -74,6 +75,7 @@ dependencies {
 	deobfCompile 'curse.maven:pollution-of-the-realms-269973:3514255' // v1.2.22.0 pollution of the realms
     deobfCompile 'curse.maven:forgeendertech-244844:3505633' // v4.5.6.0 forge endertech (lib)
     deobfCompile 'curse.maven:infintefilter-322440:2856159' // v2.0.0 infinite filter
+	deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal" // redstone flux api
     
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"

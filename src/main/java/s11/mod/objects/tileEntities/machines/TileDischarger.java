@@ -1,5 +1,8 @@
 package s11.mod.objects.tileEntities.machines;
 
+import cofh.redstoneflux.api.IEnergyConnection;
+import cofh.redstoneflux.api.IEnergyHandler;
+import cofh.redstoneflux.api.IEnergyProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,13 +22,17 @@ import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import s11.mod.config.PollutionPlusConfig;
-import s11.mod.config.PollutionPlusConfig.Machines.Discharger;
 import s11.mod.objects.blocks.unique.BlockDischarger;
 import s11.mod.recipes.DischargerRecipes;
 import s11.mod.util.PollutionSounds;
 import s11.mod.util.TextHelper;
 
-public class TileDischarger extends TileEntity implements ITickable {
+/**
+ * 
+ * an energy provider because reasons
+ *
+ */
+public class TileDischarger extends TileEntity implements ITickable, IEnergyConnection, IEnergyHandler, IEnergyProvider {
 	private final int maxCapacity = PollutionPlusConfig.Machines.discharger.maxCapacity;
 	private final int maxExtract = PollutionPlusConfig.Machines.discharger.energyOutput;
 	private final EnergyStorage energy = new EnergyStorage(maxCapacity, Integer.MAX_VALUE, maxExtract);
@@ -363,5 +370,34 @@ public class TileDischarger extends TileEntity implements ITickable {
 		if (world.getBlockState(pos) != null) {
 			world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockDischarger.ACTIVE, processing));
 		}
+	}
+
+	@Override
+	public int getEnergyStored(EnumFacing from) {
+		if (from != EnumFacing.NORTH) {
+			return getEnergyStored();
+		}
+		return 0;
+	}
+
+	@Override
+	public int getMaxEnergyStored(EnumFacing from) {
+		return getMaxEnergyStored();
+	}
+
+	@Override
+	public boolean canConnectEnergy(EnumFacing from) {
+		if (from != EnumFacing.NORTH) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int extractEnergy(EnumFacing from, int maxExtract, boolean simulate) {
+		if (from != EnumFacing.NORTH) {
+			return energy.extractEnergy(maxExtract, simulate);
+		}
+		return 0;
 	}
 }

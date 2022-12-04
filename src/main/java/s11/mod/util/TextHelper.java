@@ -124,6 +124,13 @@ public class TextHelper {
 		System.out.println(str);
 	}
 	
+	public static void print(Boolean bool) {
+		if (bool == null) {
+			return;
+		}
+		System.out.println(Boolean.toString(bool));
+	}
+	
 	/**
 	 * used for debugging
 	 * @param num

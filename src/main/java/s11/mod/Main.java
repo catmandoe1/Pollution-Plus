@@ -16,7 +16,7 @@ import s11.mod.tabs.PollutionPlusTab;
 import s11.mod.util.Reference;
 import s11.mod.util.handlers.RegisteryHandler;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = "[1.12.2]", dependencies = Reference.DEPENDENCIES)
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = "[1.12.2]")//, dependencies = Reference.DEPENDENCIES)
 public class Main {
 	@Instance
 	public static Main instance;
