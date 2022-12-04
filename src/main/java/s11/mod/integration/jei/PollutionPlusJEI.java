@@ -17,14 +17,18 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import s11.mod.containers.ContainerAlloyFurnace;
+import s11.mod.containers.ContainerDischarger;
 import s11.mod.containers.ContainerHydraulicPress;
 import s11.mod.containers.ContainerPowerInfuser;
 import s11.mod.gui.GuiAlloyFurnace;
+import s11.mod.gui.GuiDischarger;
 import s11.mod.gui.GuiHydraulicPress;
 import s11.mod.gui.GuiPowerInfuser;
 import s11.mod.init.BlockInit;
 import s11.mod.integration.jei.alloyfurnace.AlloyFurnaceRecipeCatergory;
 import s11.mod.integration.jei.alloyfurnace.AlloyFurnaceRecipeFactory;
+import s11.mod.integration.jei.discharger.DischargerRecipeCatergory;
+import s11.mod.integration.jei.discharger.DischargerRecipeFactory;
 import s11.mod.integration.jei.hydraulicpress.HydraulicPressRecipeCatergory;
 import s11.mod.integration.jei.hydraulicpress.HydraulicPressRecipeFactory;
 import s11.mod.integration.jei.powerinfuser.PowerInfuserRecipeCategory;
@@ -43,6 +47,7 @@ public class PollutionPlusJEI implements IModPlugin {
 		registry.addRecipeCategories(new PowerInfuserRecipeCategory(guiHelper));
 		registry.addRecipeCategories(new HydraulicPressRecipeCatergory(guiHelper));
 		registry.addRecipeCategories(new AlloyFurnaceRecipeCatergory(guiHelper));
+		registry.addRecipeCategories(new DischargerRecipeCatergory(guiHelper));
 	}
 	
 	@Override
@@ -87,5 +92,11 @@ public class PollutionPlusJEI implements IModPlugin {
 		registry.addRecipeClickArea(GuiAlloyFurnace.class, 74, 36, 36, 16, AlloyFurnaceRecipeCatergory.UID);
 		registry.addRecipeCatalyst(new ItemStack(BlockInit.TILE_ALLOY_FURNACE), AlloyFurnaceRecipeCatergory.UID);
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerAlloyFurnace.class, AlloyFurnaceRecipeCatergory.UID, 0, 2, 3, 36);
+		
+		//discharger
+		registry.addRecipes(DischargerRecipeFactory.recipes(), DischargerRecipeCatergory.UID);
+		registry.addRecipeClickArea(GuiDischarger.class, 74, 36, 36, 16, DischargerRecipeCatergory.UID);
+		registry.addRecipeCatalyst(new ItemStack(BlockInit.TILE_DISCHARGER), DischargerRecipeCatergory.UID);
+		recipeTransferRegistry.addRecipeTransferHandler(ContainerDischarger.class, DischargerRecipeCatergory.UID, 0, 1, 2, 36);
 	}
 }

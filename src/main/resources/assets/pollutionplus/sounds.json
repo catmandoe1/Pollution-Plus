@@ -67,5 +67,23 @@
 				"name": "pollutionplus:block/incinerator/zap2"
 			}
 		]
+	},
+	"block.discharger.work": {
+		"category": "block",
+		"subtitle": "block.discharger.work",
+		"sounds": [
+			{
+				"name": "pollutionplus:block/discharger/running1"
+			}
+		]
+	},
+	"block.discharger.recipe_complete": {
+		"category": "block",
+		"subtitle": "block.discharger.recipe_complete",
+		"sounds": [
+			{
+				"name": "pollutionplus:block/discharger/recipe_complete"
+			}
+		]
 	}
 }

@@ -19,16 +19,10 @@ import s11.mod.objects.tileEntities.powered_filters.TileVoidPoweredFilter;
 import s11.mod.util.PlayerPressing;
 import s11.mod.util.TextHelper;
 
-public class BlockVoidPoweredFilter extends BlockBase {
-	public static final PropertyBool ACTIVE = PropertyBool.create("active");
+public class BlockVoidPoweredFilter extends BlockPoweredFilterBase {
 
 	public BlockVoidPoweredFilter(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
 		super(name, material, resistance, resistance, harvestTool, harvestLevel);
-//		this.setHardness(3.0F);
-//		this.setResistance(10.0F);
-//		this.setHarvestLevel("pickaxe", 2); // iron pickaxe level
-		this.setDefaultState(blockState.getBaseState().withProperty(ACTIVE, false));
-//		this.setCreativeTab(Main.pollutionplustab);
 	}
 
 	@Override
@@ -44,40 +38,9 @@ public class BlockVoidPoweredFilter extends BlockBase {
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
-	
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		int i = state.getValue(ACTIVE) ? 1 : 0;
-		return i;
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(ACTIVE, (meta & 1) != 0);
-	}
-	
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, ACTIVE);
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
-	
+
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileVoidPoweredFilter();
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-	
-	@Override
-	public boolean isFullBlock(IBlockState state) {
-		return false;
 	}
 }

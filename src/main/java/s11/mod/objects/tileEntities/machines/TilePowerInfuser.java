@@ -149,7 +149,6 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		
 	@Override
 	public void update() {
-		// TODO finish
 		if (world.isRemote) {
 			return;
 		}
@@ -298,7 +297,6 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
      * Sets the energy to the value, NOT adds. Use {@link addOrRemoveEnergy} for that
      */
 	public void setEnergy(int energy) {
-		//TODO make this set the energy properly
 		if (energy >= 1) {
 			int diff = energy - getEnergyStored();
 			addOrRemoveEnergy(diff);

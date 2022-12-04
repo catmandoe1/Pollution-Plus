@@ -13,6 +13,7 @@ public class PollutionSounds {
 	public static SoundEvent BLOCK_ALLOY_FURNACE_RUNNING, BLOCK_ALLOY_FURNACE_RECIPE_COMPLETE; //	alloy furnace
 	public static SoundEvent BLOCK_HYDRAULIC_PRESS_RUNNING; //										hydraulic press 
 	public static SoundEvent BLOCK_INCINERATOR_WORK; //												incinerator
+	public static SoundEvent BLOCK_DISCHARGER_WORK, BLOCK_DISCHARGER_RECIPE_COMPLETE; //			discharger
 	
 	public static void registerSounds() {
 		BLOCK_POWER_INFUSER_RUNNING = register("block.power_infuser.running");
@@ -21,6 +22,8 @@ public class PollutionSounds {
 		BLOCK_ALLOY_FURNACE_RECIPE_COMPLETE = register("block.alloy_furnace.recipe_complete");
 		BLOCK_HYDRAULIC_PRESS_RUNNING = register("block.hydraulic_press.running");
 		BLOCK_INCINERATOR_WORK = register("block.incinerator.work");
+		BLOCK_DISCHARGER_WORK = register("block.discharger.work");
+		BLOCK_DISCHARGER_RECIPE_COMPLETE = register("block.discharger.recipe_complete");
 	}
 	
 //	private static SoundEvent register(String name) {

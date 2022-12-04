@@ -33,9 +33,11 @@ public class ItemInit {
 	//public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper"); replaced by hydraulic press
 	
 	// Infused
-	public static final Item STAR_VOID = new VoidStar("star_void");
-	public static final Item SHARD_VOID_INFUSED = new ItemInfused("shard_void_infused");
-	public static final Item SHARD_REFINED_VOID_INFUSED = new ItemInfused("shard_refined_void_infused"); // aka infused refined void shard
+	public static final Item SHARD_VOID_INFUSED = new ItemInfused("shard_void_infused"); // iron pf
+	public static final Item INGOT_VOID_INFUSED = new ItemInfused("ingot_void_infused"); // for gold pf
+	public static final Item INGOT_REFINED_VOID_INFUSED = new ItemInfused("ingot_refined_void_infused"); // diamond pf
+	public static final Item STAR_VOID = new VoidStar("star_void"); // incinerator and void pf
+	//public static final Item SHARD_REFINED_VOID_INFUSED = new ItemInfused("shard_refined_void_infused"); // aka infused refined void shard
 	
 	// Other
 	public static final Item STAR_VOID_OFF = new ItemToolTipAuto("star_void_off");

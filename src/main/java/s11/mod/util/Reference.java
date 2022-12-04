@@ -3,7 +3,7 @@ package s11.mod.util;
 public class Reference {
 	public static final String MODID = "pollutionplus";
 	public static final String NAME = "Pollution Plus";
-	public static final String VERSION = "1.12.2-1.6.5.0";
+	public static final String VERSION = "1.12.2-1.6.8.0";
 	public static final String DEPENDENCIES = "required-after:adpother@[1.12.2-1,)";
 	
 	public static final String CLIENT = "s11.mod.proxy.ClientProxy";
@@ -13,7 +13,8 @@ public class Reference {
 	public enum GuiIds {
 		POWER_INFUSER(0),
 		HYDRAULIC_PRESS(1),
-		ALLOY_FURNACE(2);
+		ALLOY_FURNACE(2),
+		DISCHARGER(3);
 		
 		private int index;
 		
@@ -24,5 +25,13 @@ public class Reference {
 		public int getIndex() {
 			return this.index;
 		}
+	    public static GuiIds fromInt(int i) {
+	        for (GuiIds f : values()) {
+	            if (f.getIndex() == i) {
+	                return f;
+	            }
+	        }
+	        return null;
+	    }
 	}
 }

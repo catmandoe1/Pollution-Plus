@@ -8,6 +8,7 @@ item.ingot_void.name=Void Ingot
 item.star_void.name=Void Star
 item.shard_void.name=Void Shard
 item.ingot_refined_void.name=Refined Void Ingot
+item.ingot_refined_void_infused.name=Infused Refined Void Ingot
 item.shard_refined_void.name=Refined Void Shard
 item.dust_iron.name=Iron Dust
 item.dust_gold.name=Gold Dust
@@ -21,6 +22,7 @@ item.ingot_steel.name=Steel Ingot
 item.shard_void_infused.name=Infused Void Shard
 item.shard_refined_void_infused.name=Infused Refined Void Shard
 item.star_void_off.name=Powerless Void Star
+item.ingot_void_infused.name=Infused Void Ingot
 
 # ITEMS - TOOLTIPS
 item.refined_clump_void.tooltip=Needs to be fired before useable!
@@ -41,14 +43,19 @@ tile.tile_incinerator.name=Pollution Incinerator
 tile.tile_power_infuser.name=Power Infuser
 tile.tile_hydraulic_press.name=Hydraulic Press
 tile.tile_alloy_furnace.name=Alloy Furnace
+tile.tile_discharger.name=Discharger
 
 # MACHINE - TOOLTIPS
 tile.tile_alloy_furnace.tooltip=Used to combine metals together to make new ones
 tile.tile_power_infuser.tooltip=Uses power to infuse certain items
 tile.tile_hydraulic_press.tooltip=Uses power to crush things into small pieces
+tile.tile_discharger.tooltip=Extracts power from infused items and converts then back to un-infused items.
 
 tile.tile_incinerator.tooltip1=Deletes all pollution around the incinerator in a 5 block radius for
 tile.tile_incinerator.tooltip2=Appling redstone power to the incinerator turns it off
+
+# GUI DISCHARGER
+discharger.disc1=Time Till Done:
 
 # FILTERS
 tile.tile_iron_powered_filter.name=Iron Powered Filter
@@ -63,6 +70,7 @@ powered_filters.tooltip=This filter uses power to remove pollutants.
 container.power_infuser=Power Infuser
 container.hydraulic_press=Hydraulic Press
 container.alloy_furnace=Alloy Furnace
+container.discharger=Discharger
 
 # TABS
 itemGroup.pollutionplustab=Pollution Plus
@@ -74,6 +82,8 @@ config.hydraulic_press=Hydraulic Press
 config.power_infuser=Power Infuser
 config.incinerator=Incinerator
 config.alloy_furnace=Alloy Furnace
+config.machines.discharger=Discharger
+config.machine_sounds=Machine Sounds
 
 # CONFIG - POWERED FILTERS
 config.powered_filters=Powered Filters
@@ -95,6 +105,7 @@ config.machines.alloy_furnace=Alloy Furnace
 pollutionplus.jei.powerinfuser=Power Infuser
 pollutionplus.jei.hydraulic_press=Hydraulic Press
 pollutionplus.jei.alloy_furnace=Alloy Furnace
+pollutionplus.jei.discharger=Discharger
 
 # JEI RECIPES
 jei.recipe.processTime=Process Time:
@@ -102,5 +113,9 @@ jei.recipe.pertickcost=Process Power:
 jei.recipe.base_pertick_cost=Default Process Power:
 
 # JEI DISCRIPTIONS
-jei.description.incinerator=The incinerator is an powerful machine that deletes carbon, sulfur and dust from the mod "pollution of the realms" for an exchange of 2.5 million RF. \n \nThe incinerator has a range of 5 blocks and has a cool down of 10 seconds. \n \nAll these values can be changed in the config.
+jei.description.incinerator=The incinerator is an powerful machine that deletes carbon, sulfur and dust from the mod "pollution of the realms" for an exchange of 2.5 million RF. \n\nThe incinerator by defualt has a range of 5 blocks and has a cool down of 10 seconds. \n \nAll these values can be changed in the config.
 jei.description.powered_filters=Instead of using traditional filters, this type of "filter" uses power to delete the pollutants. \n\nThe power use between the different types depend on the quality of the core and the stability of the frame.\n\nAll the values can be changed in the config.
+
+# JEI - DISCHARGER
+jei.discharger.power=Total RF:
+jei.discharger.time=Time to Discharge:

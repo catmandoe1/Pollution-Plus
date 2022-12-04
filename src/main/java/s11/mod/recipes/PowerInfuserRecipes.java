@@ -20,11 +20,10 @@ public class PowerInfuserRecipes {
 	}
 	
 	private PowerInfuserRecipes() {
-//		addInfuserRecipe(Items.APPLE, Items.GOLDEN_APPLE);
-//		addInfuserRecipe(Items.NETHER_STAR, Items.NETHERBRICK);
-//		addInfuserRecipe(Items.BEEF, Items.COOKED_BEEF, 200);
+		//addInfuserRecipe(ItemInit.SHARD_REFINED_VOID, ItemInit.SHARD_REFINED_VOID_INFUSED); removed
 		addInfuserRecipe(ItemInit.SHARD_VOID, ItemInit.SHARD_VOID_INFUSED, 300);
-		addInfuserRecipe(ItemInit.SHARD_REFINED_VOID, ItemInit.SHARD_REFINED_VOID_INFUSED);
+		addInfuserRecipe(ItemInit.INGOT_VOID, ItemInit.INGOT_VOID_INFUSED, 500);
+		addInfuserRecipe(ItemInit.INGOT_REFINED_VOID, ItemInit.INGOT_REFINED_VOID_INFUSED, 1000);
 		addInfuserRecipe(ItemInit.STAR_VOID_OFF, ItemInit.STAR_VOID, 2000);
 	}
 	

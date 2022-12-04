@@ -27,7 +27,7 @@ public class PollutionPlusConfig {
 		
 		@SideOnly(Side.CLIENT)
 		@LangKey("config.machine_sounds")
-		public static MachineSounds machines = new MachineSounds(true, true, true, true);
+		public static MachineSounds machines = new MachineSounds(true, true, true, true, true);
 		
 		public static class MachineSounds {
 			@Name("Hydraulic Press Sound")
@@ -45,12 +45,17 @@ public class PollutionPlusConfig {
 			@Name("Alloy Furnace Sound")
 			@Comment("Turns on and off all sounds for this machine")
 			public boolean alloyFurnaceSound;
+			
+			@Name("Discharger Sound")
+			@Comment("Turns on and off all sounds for this machine")
+			public boolean dischargerSound;
 
-			MachineSounds(boolean hydraulicPressSound, boolean powerInfuserSound, boolean incineratorSound, boolean alloyFurnaceSound) {
+			MachineSounds(boolean hydraulicPressSound, boolean powerInfuserSound, boolean incineratorSound, boolean alloyFurnaceSound, boolean dischargerSound) {
 				this.hydraulicPressSound = hydraulicPressSound; 
 				this.powerInfuserSound = powerInfuserSound;
 				this.incineratorSound = incineratorSound;
 				this.alloyFurnaceSound = alloyFurnaceSound;
+				this.dischargerSound = dischargerSound;
 			}
 		}
 	}
@@ -66,6 +71,8 @@ public class PollutionPlusConfig {
 		public static Incinerator incinerator = new Incinerator(2500000, 5000000, 200);
 		@LangKey("config.machines.alloy_furnace")
 		public static AlloyFurnace alloyFurnace = new AlloyFurnace(100, 10000);
+		@LangKey("config.machines.discharger")
+		public static Discharger discharger = new Discharger(1000, 10000, 90, 2400000);
 		
 		
 		//@LangKey("config.hydraulic_press")
@@ -146,6 +153,42 @@ public class PollutionPlusConfig {
 			AlloyFurnace(int operationCost, int maxCapacity) {
 				this.maxCapacity = maxCapacity;
 				this.operationCost = operationCost;
+			}
+		}
+		
+		public static class Discharger {
+			@Name("Power extraction")
+			@Comment("The amount of energy that the discharger extracts from the infused item per tick.")
+			@RangeInt(min = 1, max = 10000000)
+			public int energyExtraction;
+			
+			@Name("Max power output")
+			@Comment("The amount of energy that can be outputted by the discharger.")
+			@RangeInt(min = 0)
+			public int energyOutput;
+			
+			@Name("Extraction efficiency")
+			@Comment("Percentage of how much energy of the infused item it extracts and the extraction speed (%).")
+			@RangeInt(min = 1, max = 100)
+			public int extractionEfficiency; 
+			
+			@Name("Discharger rf capacity")
+			@Comment("The capacity of the internal power storage.")
+			@RangeInt(min = 1)
+			public int maxCapacity;
+			
+			/**
+			 * 
+			 * @param energyExtraction
+			 * @param energyOutput
+			 * @param extractionEfficiency
+			 * @param maxCapacity
+			 */
+			Discharger(int energyExtraction, int energyOutput, int extractionEfficiency, int maxCapacity) {
+				this.energyExtraction = energyExtraction;
+				this.energyOutput = energyOutput;
+				this.extractionEfficiency = extractionEfficiency;
+				this.maxCapacity = maxCapacity;
 			}
 		}
 	}

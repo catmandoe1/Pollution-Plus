@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+		"particle": "pollutionplus:blocks/defualt_machine_side",
+        "down": "pollutionplus:blocks/defualt_machine_side",
+		"up": "pollutionplus:blocks/defualt_machine_side",
+		"north": "pollutionplus:blocks/discharger/discharger_front",
+		"south": "pollutionplus:blocks/defualt_machine_side",
+		"west": "pollutionplus:blocks/defualt_machine_side",
+		"east": "pollutionplus:blocks/defualt_machine_side"
+    }
+}

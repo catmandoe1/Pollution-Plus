@@ -19,16 +19,10 @@ import s11.mod.objects.tileEntities.powered_filters.TileGoldPoweredFilter;
 import s11.mod.util.PlayerPressing;
 import s11.mod.util.TextHelper;
 
-public class BlockGoldPoweredFilter extends BlockBase {
-	public static final PropertyBool ACTIVE = PropertyBool.create("active");
-
+public class BlockGoldPoweredFilter extends BlockPoweredFilterBase {
+	
 	public BlockGoldPoweredFilter(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
 		super(name, material, resistance, resistance, harvestTool, harvestLevel);
-//		this.setHardness(2.0F);
-//		this.setResistance(8.0F);
-//		setHarvestLevel("pickaxe", 2); // iron pickaxe level
-		setDefaultState(blockState.getBaseState().withProperty(ACTIVE, false));
-//		setCreativeTab(Main.pollutionplustab);
 	}
 	
 	@Override
@@ -40,44 +34,13 @@ public class BlockGoldPoweredFilter extends BlockBase {
 			tooltip.add(TextFormatting.BLUE + "" + PollutionPlusConfig.PoweredFilters.gold.filterPowerUse + " RF/t");
 			tooltip.add(TextFormatting.BLUE + "" + PollutionPlusConfig.PoweredFilters.gold.filterSpeed + " " + TextHelper.getLang("global.cooldown"));
 		} else {
-			tooltip.add(TextFormatting.RED + I18n.format("global.ctrl_help"));
+			tooltip.add(TextFormatting.RED + TextHelper.getLang("global.ctrl_help"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 	
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		int i = state.getValue(ACTIVE) ? 1 : 0;
-		return i;
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(ACTIVE, (meta & 1) != 0);
-	}
-	
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, ACTIVE);
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
-	
-	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileGoldPoweredFilter();
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-	
-	@Override
-	public boolean isFullBlock(IBlockState state) {
-		return false;
 	}
 }
