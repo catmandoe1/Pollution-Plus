@@ -7,6 +7,7 @@ import s11.mod.objects.tileEntities.machines.TileDischarger;
 import s11.mod.objects.tileEntities.machines.TileHydraulicPress;
 import s11.mod.objects.tileEntities.machines.TileIncinerator;
 import s11.mod.objects.tileEntities.machines.TilePowerInfuser;
+import s11.mod.objects.tileEntities.machines.TileVoidMinerController;
 import s11.mod.objects.tileEntities.powered_filters.TileDiamondPoweredFilter;
 import s11.mod.objects.tileEntities.powered_filters.TileGoldPoweredFilter;
 import s11.mod.objects.tileEntities.powered_filters.TileIronPoweredFilter;
@@ -20,6 +21,7 @@ public class TileEntityHandler {
 		GameRegistry.registerTileEntity(TileHydraulicPress.class, BlockInit.TILE_HYDRAULIC_PRESS.getRegistryName());
 		GameRegistry.registerTileEntity(TileAlloyFurnace.class, BlockInit.TILE_ALLOY_FURNACE.getRegistryName());
 		GameRegistry.registerTileEntity(TileDischarger.class, BlockInit.TILE_DISCHARGER.getRegistryName());
+		//GameRegistry.registerTileEntity(TileVoidMinerController.class, BlockInit.VOID_MINER_CONTROLLER.getRegistryName());
 		
 		//powered filters
 		GameRegistry.registerTileEntity(TileIronPoweredFilter.class, BlockInit.TILE_IRON_POWERED_FILTER.getRegistryName());

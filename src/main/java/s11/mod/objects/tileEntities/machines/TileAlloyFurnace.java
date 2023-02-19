@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import s11.mod.config.PollutionPlusConfig;
@@ -125,22 +127,12 @@ public class TileAlloyFurnace extends TileEntity implements ITickable{
 	public boolean isAlloying() {
 		return progress > 0; 
 	}
-	
-//	public void playRunningSound() {
-//		if (PollutionPlusConfig.getMachineVolume()) {
-//			world.playSound(null, pos, PollutionSounds.BLOCK_ALLOY_FURNACE_RUNNING, SoundCategory.BLOCKS, 1.0F, 1.0F);
-//		}
-//	}
-	
+
 	public void playRecipeCompleteSound() {
-		if (PollutionPlusConfig.GeneralConfig.machines.alloyFurnaceSound) {
+		if (PollutionPlusConfig.GeneralConfig.machinesSounds.alloyFurnaceSound) {
 			world.playSound(null, pos, PollutionSounds.BLOCK_ALLOY_FURNACE_RECIPE_COMPLETE, SoundCategory.BLOCKS, 0.1F, 1.0F);
 		}
 	}
-	
-//	public boolean isRunningSoundActive() {
-//		return runningSoundActive;
-//	}
 		
 	@Override
 	public void update() {
@@ -148,9 +140,6 @@ public class TileAlloyFurnace extends TileEntity implements ITickable{
 			//updateRunningSound();
 			return;
 		}
-		
-		//setEnergy(999999999);
-		//System.out.println("abc");
 		
 		//initial load stuff
 		if (firstStart == true) {
@@ -223,6 +212,7 @@ public class TileAlloyFurnace extends TileEntity implements ITickable{
 	 * @param input
 	 * @param input2
 	 * @return
+	 * @deprecated
 	 */
 	private ItemStack getRecipeDouble(ItemStack input, ItemStack input2) {
 		return AlloyFurnaceRecipes.getInstance().getRecipeResultDouble(input, input2);

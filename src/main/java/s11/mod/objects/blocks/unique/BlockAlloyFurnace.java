@@ -100,7 +100,7 @@ public class BlockAlloyFurnace extends BlockBase {
 		double d4 = rand.nextDouble() * 0.6D - 0.3D;
 		
 		// plays the furnace sound every so often
-		if (rand.nextDouble() < 0.2D && PollutionPlusConfig.GeneralConfig.machines.alloyFurnaceSound){
+		if (rand.nextDouble() < 0.2D && PollutionPlusConfig.GeneralConfig.machinesSounds.alloyFurnaceSound){
 			world.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1F, 1F, false);
 		}
 		

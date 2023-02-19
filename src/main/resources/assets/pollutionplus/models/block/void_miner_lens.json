@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+		"particle": "pollutionplus:blocks/steel_block",
+        "down": "pollutionplus:blocks/void_miner/laser_lens",
+		"up": "pollutionplus:blocks/void_miner/laser_lens",
+		"north": "pollutionplus:blocks/steel_block",
+		"south": "pollutionplus:blocks/steel_block",
+		"west": "pollutionplus:blocks/steel_block",
+		"east": "pollutionplus:blocks/steel_block"
+    }
+}

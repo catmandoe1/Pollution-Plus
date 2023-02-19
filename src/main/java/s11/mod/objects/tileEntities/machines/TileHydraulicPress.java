@@ -16,6 +16,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import s11.mod.config.PollutionPlusConfig;
@@ -36,6 +38,8 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
     private final int MAXPROGRESS = 160;
     private boolean justUpdated = false;
     private boolean firstStart = false;
+    private int INPUT = 0;
+	private int OUTPUT = 1;
 		
 	public boolean hasCustomName() {
 		return this.customName != null && !this.customName.isEmpty();
@@ -110,7 +114,7 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 	}
 	
 	public void playRunningSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.hydraulicPressSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.hydraulicPressSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_HYDRAULIC_PRESS_RUNNING, SoundCategory.BLOCKS, 0.25F, 1.0F);
@@ -129,6 +133,7 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 		
 		ItemStack input = handler.getStackInSlot(0);
 		ItemStack output = handler.getStackInSlot(1);
+		
 				
 		if(canActivate() && canCrush()) {
 			markDirty();
@@ -142,12 +147,13 @@ public class TileHydraulicPress extends TileEntity implements ITickable {
 			if (progress >= MAXPROGRESS) {
 				progress = 0;
 				
-				if (handler.getStackInSlot(1).getCount() > 0) {
-					handler.getStackInSlot(1).grow(1);
+				// redone item to a good way.
+				if (output.getCount() > 0) {
+					handler.insertItem(OUTPUT, new ItemStack(input.getItem()), false);
 				} else {
 					handler.insertItem(1, getRecipe(input).copy(), false);
 				}
-				handler.getStackInSlot(0).shrink(1);
+				handler.extractItem(INPUT, 1, false);
 			}
 			
 			if(justUpdated == false) {

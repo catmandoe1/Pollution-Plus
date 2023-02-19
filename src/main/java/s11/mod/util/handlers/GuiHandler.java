@@ -8,14 +8,17 @@ import s11.mod.containers.ContainerAlloyFurnace;
 import s11.mod.containers.ContainerDischarger;
 import s11.mod.containers.ContainerHydraulicPress;
 import s11.mod.containers.ContainerPowerInfuser;
+import s11.mod.containers.ContainerVoidMinerController;
 import s11.mod.gui.GuiAlloyFurnace;
 import s11.mod.gui.GuiDischarger;
 import s11.mod.gui.GuiHydraulicPress;
 import s11.mod.gui.GuiPowerInfuser;
+import s11.mod.gui.GuiVoidMinerController;
 import s11.mod.objects.tileEntities.machines.TileAlloyFurnace;
 import s11.mod.objects.tileEntities.machines.TileDischarger;
 import s11.mod.objects.tileEntities.machines.TileHydraulicPress;
 import s11.mod.objects.tileEntities.machines.TilePowerInfuser;
+import s11.mod.objects.tileEntities.machines.TileVoidMinerController;
 import s11.mod.util.Reference;
 
 public class GuiHandler implements IGuiHandler {
@@ -32,6 +35,8 @@ public class GuiHandler implements IGuiHandler {
 				return new ContainerAlloyFurnace(player.inventory, (TileAlloyFurnace)world.getTileEntity(new BlockPos(x, y, z)));
 			case DISCHARGER:
 				return new ContainerDischarger(player.inventory, (TileDischarger)world.getTileEntity(new BlockPos(x, y, z)));
+			case VOID_MINER:
+				return new ContainerVoidMinerController(player.inventory, (TileVoidMinerController)world.getTileEntity(new BlockPos(x, y, z)));
 			default:
 				return null;
 		}
@@ -49,6 +54,8 @@ public class GuiHandler implements IGuiHandler {
 				return new GuiAlloyFurnace(player.inventory, (TileAlloyFurnace)world.getTileEntity(new BlockPos(x, y, z)));
 			case DISCHARGER:
 				return new GuiDischarger(player.inventory, (TileDischarger)world.getTileEntity(new BlockPos(x, y, z)));
+			case VOID_MINER:
+				return new GuiVoidMinerController(player.inventory, (TileVoidMinerController)world.getTileEntity(new BlockPos(x, y, z)));
 			default:
 				return null;
 		}

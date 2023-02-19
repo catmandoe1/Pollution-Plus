@@ -11,6 +11,12 @@ public class OreDictionaryRegister {
 		OreDictionary.registerOre("ingotRefinedVoid", ItemInit.INGOT_REFINED_VOID);
 		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
 		
+		// nuggets
+		OreDictionary.registerOre("nuggetSteel", ItemInit.NUGGET_STEEL);
+		
+		// rods
+		OreDictionary.registerOre("rodSteel", ItemInit.ROD_STEEL);
+		
 		//OreDictionary.registerOre("starVoid", ItemInit.STAR_VOID);
 		//OreDictionary.registerOre("shardVoid", ItemInit.SHARD_VOID);
 		//OreDictionary.registerOre("shardRefinedVoid", ItemInit.SHARD_REFINED_VOID);
@@ -24,5 +30,7 @@ public class OreDictionaryRegister {
 		
 		// blocks
 		OreDictionary.registerOre("oreVoid", BlockInit.ORE_VOID);
+		OreDictionary.registerOre("blockSteel", BlockInit.STEEL_BLOCK);
+		OreDictionary.registerOre("frameSteel", BlockInit.STEEL_FRAME);
 	}
 }

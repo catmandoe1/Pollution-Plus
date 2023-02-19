@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.unique.BlockIncinerator;
 import s11.mod.util.PollutionSounds;
@@ -43,7 +45,7 @@ public class TileIncinerator extends TileEntity implements ITickable {
 	private boolean hasRedstone;
 	
 	public void playWorkSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.incineratorSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.incineratorSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_INCINERATOR_WORK, SoundCategory.BLOCKS, 1.0F, 1.0F);

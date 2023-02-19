@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["AB"," B"," B"],"key":{ "A":{"type":"forge:ore_dict","ore":"nuggetSteel"}, "B":{"type":"forge:ore_dict","ore":"rodSteel"}},"result":{"item":"pollutionplus:allen_key"}}

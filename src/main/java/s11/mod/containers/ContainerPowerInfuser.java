@@ -20,7 +20,7 @@ public class ContainerPowerInfuser extends Container {
 	private final TilePowerInfuser tileentity;
 	private int progress, maxProgress, energy, maxEnergy;
 
-		public ContainerPowerInfuser(InventoryPlayer player, TilePowerInfuser tileentity) {
+	public ContainerPowerInfuser(InventoryPlayer player, TilePowerInfuser tileentity) {
 		this.tileentity = tileentity;
 		//System.out.println(tileentity); // null?
 		IItemHandler handler = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);

@@ -8,9 +8,9 @@ import net.minecraft.item.ItemBlock;
 import s11.mod.Main;
 import s11.mod.init.BlockInit;
 import s11.mod.init.ItemInit;
-import s11.mod.util.interfaces.IHasModel;
+import s11.mod.util.interfaces.HasModel;
 
-public class BlockBase extends Block implements IHasModel {
+public class BlockBase extends Block implements HasModel {
 
 	/**
 	 * 

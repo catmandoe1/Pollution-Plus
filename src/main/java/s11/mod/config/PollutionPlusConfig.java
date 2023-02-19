@@ -25,9 +25,8 @@ public class PollutionPlusConfig {
 //		@Config.Comment("Turns off or on all machine volume (such as the incinerator zap etc.).")
 //		public static boolean machineVolume = true;
 		
-		@SideOnly(Side.CLIENT)
 		@LangKey("config.machine_sounds")
-		public static MachineSounds machines = new MachineSounds(true, true, true, true, true);
+		public static MachineSounds machinesSounds = new MachineSounds(true, true, true, true, true);
 		
 		public static class MachineSounds {
 			@Name("Hydraulic Press Sound")
@@ -73,6 +72,8 @@ public class PollutionPlusConfig {
 		public static AlloyFurnace alloyFurnace = new AlloyFurnace(100, 10000);
 		@LangKey("config.machines.discharger")
 		public static Discharger discharger = new Discharger(1000, 10000, 90, 2400000);
+		@LangKey("config.machines.void_miner_controller")
+		public static VoidMinerController voidMinerController = new VoidMinerController(35000, 2048, 20);
 		
 		
 		//@LangKey("config.hydraulic_press")
@@ -189,6 +190,35 @@ public class PollutionPlusConfig {
 				this.energyOutput = energyOutput;
 				this.extractionEfficiency = extractionEfficiency;
 				this.maxCapacity = maxCapacity;
+			}
+		}
+		
+		public static class VoidMinerController {
+			@Name("Controller storage capacity")
+			@Comment("The maximum amount of rf the controller can hold.")
+			@RangeInt(min = 1)
+			public int maxCapacity;
+			
+			@Name("Controller operation cost")
+			@Comment("The amount of rf the controller will use per tick while running.")
+			@RangeInt(min = 0)
+			public int operationCost;
+			
+			@Name("Controller work speed")
+			@Comment("The delay between mines")
+			@RangeInt(min = 0)
+			public int workSpeed;
+			
+			/**
+			 * 
+			 * @param maxCapacity
+			 * @param powerUse
+			 * @param workSpeed
+			 */
+			public VoidMinerController(int maxCapacity, int powerUse, int workSpeed) {
+				this.maxCapacity = maxCapacity;
+				this.operationCost = powerUse;
+				this.workSpeed = workSpeed;
 			}
 		}
 	}

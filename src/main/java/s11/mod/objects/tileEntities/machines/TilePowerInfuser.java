@@ -21,6 +21,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import s11.mod.config.PollutionPlusConfig;
@@ -127,21 +129,16 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	public boolean isInfusing() {
 		return progress > 0; 
 	}
-	
-	@Override
-	public void markDirty() {
-		super.markDirty();
-	}
-	
+		
 	public void playRunningSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.powerInfuserSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.powerInfuserSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_POWER_INFUSER_RUNNING, SoundCategory.BLOCKS, 0.25F, 1.0F);
 	}
 	
 	public void playRecipeCompleteSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.powerInfuserSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.powerInfuserSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_POWER_INFUSER_RECIPE_COMPLETE, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -157,12 +154,12 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 			updateState(isInfusing());
 			firstStart = false;
 		}
-		
+				
 		ItemStack input = handler.getStackInSlot(0);
 		ItemStack output = handler.getStackInSlot(1);
 				
 		if(canActivate() && canInfuse()) {
-			markDirty();
+			//markDirty();
 			tickEnergy();
 			//super easy and simple way of playing sounds with lots of problems!
 			if (progress % 40 == 0) {
@@ -173,12 +170,12 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 			if (progress >= MAXPROGRESS) {
 				progress = 0;
 				
-				if (handler.getStackInSlot(1).getCount() > 0) {
-					handler.getStackInSlot(1).grow(1);
+				if (output.getCount() > 0) {
+					handler.insertItem(1, new ItemStack(output.getItem()), false);
 				} else {
 					handler.insertItem(1, getRecipe(input).copy(), false);
 				}
-				handler.getStackInSlot(0).shrink(1);
+				handler.extractItem(0, 1, false);
 				playRecipeCompleteSound();
 			}
 			
@@ -263,7 +260,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		case 1:
 			return MAXPROGRESS;
 		case 2:
-			return this.energy.getEnergyStored();
+			return energy.getEnergyStored();
 		case 3: 
 			return maxCapacity;
 		default:

@@ -3,9 +3,9 @@ package s11.mod.objects.items;
 import net.minecraft.item.Item;
 import s11.mod.Main;
 import s11.mod.init.ItemInit;
-import s11.mod.util.interfaces.IHasModel;
+import s11.mod.util.interfaces.HasModel;
 
-public class ItemBase extends Item implements IHasModel {
+public class ItemBase extends Item implements HasModel {
 	public ItemBase(String name) {
 		setTranslationKey(name);
 		setRegistryName(name);

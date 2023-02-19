@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import s11.mod.config.PollutionPlusConfig;
@@ -43,6 +45,8 @@ public class TileDischarger extends TileEntity implements ITickable, IEnergyConn
 	private int progress = 0;
     private boolean firstStart = false;
     private boolean processing = false;
+    private int INPUT = 0;
+	private int OUTPUT = 1;
     
     //item bits
     private int progressLimit;
@@ -95,7 +99,7 @@ public class TileDischarger extends TileEntity implements ITickable, IEnergyConn
 					processing = false;
 					playRecipeCompleteSound();
 					if (output.getCount() > 0) {
-						output.grow(1);
+						handler.insertItem(OUTPUT, new ItemStack(output.getItem()), false);
 					} else {
 						handler.insertItem(1, getRecipe(inputCopy).copy(), false);
 					}
@@ -135,14 +139,14 @@ public class TileDischarger extends TileEntity implements ITickable, IEnergyConn
 	}
 	
 	private void playRunningSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.dischargerSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.dischargerSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_DISCHARGER_WORK, SoundCategory.BLOCKS, 0.25F, 1.0F);
 	}
 	
 	private void playRecipeCompleteSound() {
-		if (!PollutionPlusConfig.GeneralConfig.machines.dischargerSound) {
+		if (!PollutionPlusConfig.GeneralConfig.machinesSounds.dischargerSound) {
 			return;
 		}
 		world.playSound(null, pos, PollutionSounds.BLOCK_DISCHARGER_RECIPE_COMPLETE, SoundCategory.BLOCKS, 1F, 1.0F);

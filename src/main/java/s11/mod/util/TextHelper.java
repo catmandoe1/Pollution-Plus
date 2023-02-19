@@ -34,7 +34,7 @@ public class TextHelper {
 	 * @return item. + {@code lang} + .tooltip
 	 */
 	public static String itemToolTipGetLang(String lang) {
-		return net.minecraft.client.resources.I18n.format("item." + lang + ".tooltip");
+		return getLang("item." + lang + ".tooltip");
 	}
 	
 	public static int calculateRF(int delay, int powerUse) {
@@ -111,52 +111,5 @@ public class TextHelper {
 		}
 		
 		return time;
-	}
-	
-	/**
-	 * used for debugging
-	 * @param str
-	 */
-	public static void print(String str) {
-		if (str == null) {
-			return;
-		}
-		System.out.println(str);
-	}
-	
-	public static void print(Boolean bool) {
-		if (bool == null) {
-			return;
-		}
-		System.out.println(Boolean.toString(bool));
-	}
-	
-	/**
-	 * used for debugging
-	 * @param num
-	 */
-	public static void print(Integer num) {
-		if (num == null) {
-			return;
-		}
-		System.out.println(Integer.toString(num));
-	}
-	
-	/**
-	 * used for debugging
-	 * @param num
-	 */
-	public static void print(Float num) {
-		if (num == null) {
-			return;
-		}
-		System.out.println(Float.toString(num));
-	}
-	
-	public static void print(Double num) {
-		if (num == null) {
-			return;
-		}
-		System.out.println(Double.toString(num));
 	}
 }
