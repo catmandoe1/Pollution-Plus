@@ -2,6 +2,7 @@
 global.ctrl_help=Hold Ctrl for help
 global.disc_stats=Stats:
 global.cooldown=Tick Cooldown
+global.disabled=DISABLED
 
 # ITEMS
 item.ingot_void.name=Void Ingot
@@ -23,20 +24,33 @@ item.shard_void_infused.name=Infused Void Shard
 item.shard_refined_void_infused.name=Infused Refined Void Shard
 item.star_void_off.name=Powerless Void Star
 item.ingot_void_infused.name=Infused Void Ingot
+item.allen_key.name=Allen Key
+item.nugget_steel.name=Steel Nugget
+item.rod_steel.name=Steel Rod
 
 # ITEMS - TOOLTIPS
 item.refined_clump_void.tooltip=Needs to be fired before useable!
 item.binding_agent.tooltip=Needs to be fired before useable!
 item.star_void_off.tooltip=Needs to be infused to be used!
+item.allen_key.tooltip=Used to create multiblock structures. - WIP
 
 item.void_star.tooltip1=Infinite filter config has to be changed to this item's id for it to be used as the activator
 item.void_star.tooltip2=Can be used as an alternative for activating an infinite filter
 
 # TILES
 tile.ore_void.name=Void Ore
+tile.steel_frame.name=Steel Frame
+tile.steel_block.name=Steel Block
+tile.void_miner_energy_component.name=Void Miner Energy Component
+tile.void_miner_heat_sink.name=Void Miner Heat Sink
+tile.void_miner_laser_core.name=Void Miner Mining Laser Core
+tile.void_miner_lens.name=Mining Laser Lens
+tile.void_miner_controller.name=Void Miner Controller
 
 # TILES - TOOLTIPS
 tile.ore_void.tooltip=Sparingly found around Y5 - Y30
+tile.void_miner_controller.tooltip=The brains of the void miner multiblock.
+tile.void_miner_controller.tooltip2=Right click the controller to find where to place blocks to construct the multiblock. Then once finished crouch + right click the controller with the allen key.
 
 # MACHINES
 tile.tile_incinerator.name=Pollution Incinerator
@@ -71,9 +85,14 @@ container.power_infuser=Power Infuser
 container.hydraulic_press=Hydraulic Press
 container.alloy_furnace=Alloy Furnace
 container.discharger=Discharger
+container.void_miner_controller=Void Miner
 
 # TABS
 itemGroup.pollutionplustab=Pollution Plus
+
+# CHAT MESSAGES
+chat.allen_key.fail_message=No Structure
+chat.allen_key.success_message=Built Structure!
 
 # CONFIG
 config.general=General
@@ -100,6 +119,7 @@ config.machines.power_infuser=Power Infuser
 config.machines.hydraulic_press=Hydraulic Press
 config.machines.incinerator=Incinerator
 config.machines.alloy_furnace=Alloy Furnace
+config.machines.void_miner_controller=Void Miner Controller
 
 # JEI
 pollutionplus.jei.powerinfuser=Power Infuser

@@ -2,6 +2,7 @@
 global.ctrl_help=Hold Ctrl for help
 global.disc_stats=Stats:
 global.cooldown=Tick Cooldown
+global.disabled=DISABLED
 
 # ITEMS
 item.ingot_void.name=Void Ingot

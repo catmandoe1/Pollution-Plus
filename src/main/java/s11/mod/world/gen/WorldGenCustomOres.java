@@ -11,6 +11,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.init.BlockInit;
 
 public class WorldGenCustomOres implements IWorldGenerator{
@@ -30,7 +31,9 @@ public class WorldGenCustomOres implements IWorldGenerator{
 			
 		case 0:
 			// Overworld Ores
-			runGenerator(ore_void, world, random, chunkX, chunkZ, 20, 5, 30); 
+			if (PollutionPlusConfig.GeneralConfig.generateVoidOre) {				
+				runGenerator(ore_void, world, random, chunkX, chunkZ, 20, 5, 30); 
+			}
 			break;
 		case 1:
 			// End Ores

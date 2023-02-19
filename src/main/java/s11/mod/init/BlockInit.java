@@ -6,14 +6,13 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import s11.mod.objects.blocks.BlockBase;
-import s11.mod.objects.blocks.BlockToolTip;
 import s11.mod.objects.blocks.BlockTrans;
 import s11.mod.objects.blocks.unique.BlockAlloyFurnace;
 import s11.mod.objects.blocks.unique.BlockDischarger;
 import s11.mod.objects.blocks.unique.BlockHydraulicPress;
 import s11.mod.objects.blocks.unique.BlockIncinerator;
 import s11.mod.objects.blocks.unique.BlockPowerInfuser;
-import s11.mod.objects.blocks.unique.BlockVoidMinerController;
+import s11.mod.objects.blocks.unique.BlockVoidOre;
 import s11.mod.objects.blocks.unique.powered_filters.BlockDiamondPoweredFilter;
 import s11.mod.objects.blocks.unique.powered_filters.BlockGoldPoweredFilter;
 import s11.mod.objects.blocks.unique.powered_filters.BlockIronPoweredFilter;
@@ -22,7 +21,7 @@ import s11.mod.objects.blocks.unique.powered_filters.BlockVoidPoweredFilter;
 public class BlockInit {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();	
 	// Blocks Sparingly found around Y5 - Y30
-	public static final Block ORE_VOID = new BlockToolTip("ore_void", Material.IRON, 3, 15, "pickaxe", 3, "tile.ore_void.tooltip");
+	public static final Block ORE_VOID = new BlockVoidOre("ore_void", Material.IRON, 3, 15, "pickaxe", 3, "tile.ore_void.tooltip");
 	public static final Block STEEL_FRAME = new BlockTrans("steel_frame", Material.IRON, 2, 10, "pickaxe", 2);
 	public static final Block STEEL_BLOCK = new BlockBase("steel_block", Material.IRON, 4, 25, "pickaxe", 2);
 	

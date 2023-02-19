@@ -25,6 +25,11 @@ public class PollutionPlusConfig {
 //		@Config.Comment("Turns off or on all machine volume (such as the incinerator zap etc.).")
 //		public static boolean machineVolume = true;
 		
+		@RequiresWorldRestart
+		@Name("Generate Void Ore")
+		@Comment("Enables/Disables ore generation for void ore. Only works when generating new chunks or a new world (already spawned ore wont disappear).")
+		public static boolean generateVoidOre = true;
+		
 		@LangKey("config.machine_sounds")
 		public static MachineSounds machinesSounds = new MachineSounds(true, true, true, true, true);
 		
