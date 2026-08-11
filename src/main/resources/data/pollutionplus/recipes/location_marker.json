@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" A","CB","CB"],"key":{ "A":{"item":"minecraft:lightning_rod"}, "B":{"tag":"forge:ingots/iron"}, "C":{"tag":"minecraft:buttons"}},"result":{"item":"pollutionplus:location_marker"}}

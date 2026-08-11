@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"tag":"forge:dusts/redstone"}, "B":{"tag":"forge:ingots/iron"}, "C":{"item":"pollutionplus:filter_core_weak"}},"result":{"item":"pollutionplus:powered_filter_iron"}}

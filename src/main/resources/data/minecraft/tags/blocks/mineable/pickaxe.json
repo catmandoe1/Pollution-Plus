@@ -1,0 +1,13 @@
+{
+	"values": [
+		"pollutionplus:incinerator",
+		"pollutionplus:powered_filter_iron",
+		"pollutionplus:powered_filter_gold",
+		"pollutionplus:powered_filter_diamond",
+		"pollutionplus:powered_filter_void",
+		"pollutionplus:infinite_filter",
+		"pollutionplus:pipe",
+		"pollutionplus:pollution_pump",
+		"pollutionplus:pollution_deleter"
+	]
+}

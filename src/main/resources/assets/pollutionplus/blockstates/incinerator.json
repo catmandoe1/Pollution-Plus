@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=false": {
+			"model": "pollutionplus:block/incinerator"
+		},
+		"powered=true": {
+			"model": "pollutionplus:block/incinerator_on"
+		}
+	}
+}

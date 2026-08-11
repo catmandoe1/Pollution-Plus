@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=false": {
+			"model": "pollutionplus:block/infinite_filter_off"
+		},
+		"powered=true": {
+			"model": "pollutionplus:block/infinite_filter_on"
+		}
+	}
+}

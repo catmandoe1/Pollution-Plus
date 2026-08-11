@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"tag":"forge:dusts/glowstone"}, "B":{"tag":"forge:ingots/gold"}, "C":{"item":"pollutionplus:filter_core_weak"}},"result":{"item":"pollutionplus:powered_filter_gold"}}

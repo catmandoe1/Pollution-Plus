@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","CDC","ABA"],"key":{ "A":{"tag":"forge:storage_blocks/redstone"}, "B":{"tag":"forge:ingots/void"}, "C":{"item":"pollutionplus:filter_core"}, "D":{"tag":"forge:storage_blocks/diamond"}},"result":{"item":"pollutionplus:powered_filter_void"}}

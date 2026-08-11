@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","CDC","ABA"],"key":{ "A":{"tag":"forge:ingots/iron"}, "B":{"item":"pollutionplus:filter_core"}, "C":{"tag":"forge:ingots/void"}, "D":{"tag":"forge:nether_stars"}},"result":{"item":"pollutionplus:pollution_deleter"}}

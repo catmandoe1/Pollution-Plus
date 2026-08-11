@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"up": "pollutionplus:block/incinerator/incinerator_top",
+		"down": "pollutionplus:block/incinerator/incinerator_bottom",
+		"north": "pollutionplus:block/incinerator/incinerator_side",
+		"south": "pollutionplus:block/incinerator/incinerator_side",
+		"east": "pollutionplus:block/incinerator/incinerator_side",
+		"west": "pollutionplus:block/incinerator/incinerator_side",
+		"particle": "pollutionplus:block/incinerator/incinerator_side"
+	}
+}

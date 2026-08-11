@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"up": "pollutionplus:block/pollution_deleter/pollution_deleter_top",
+		"down": "pollutionplus:block/incinerator/incinerator_bottom",
+		"north": "pollutionplus:block/pollution_deleter/pollution_deleter_side",
+		"south": "pollutionplus:block/pollution_deleter/pollution_deleter_side",
+		"east": "pollutionplus:block/pollution_deleter/pollution_deleter_side",
+		"west": "pollutionplus:block/pollution_deleter/pollution_deleter_side",
+		"particle": "pollutionplus:block/pollution_deleter/pollution_deleter_side"
+	}
+}

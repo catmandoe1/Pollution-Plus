@@ -1,1 +1,0 @@
-{"type":"minecraft:crafting_shaped","pattern":["AAA","BCB","DAD"],"key":{ "A":{"type":"forge:ore_dict","ore":"tinyDustDiamond"}, "B":{"item":"minecraft:redstone"}, "C":{"item":"pollutionplus:primed_binding_agent"}, "D":{"type":"forge:ore_dict","ore":"dustGold"}},"result":{"item":"pollutionplus:refinement_gel"}}

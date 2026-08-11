@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"size=full": {
+			"model": "pollutionplus:block/pipe/pipe"
+		},
+		"size=half": {
+			"model": "pollutionplus:block/pipe/pipe_half"
+		}
+	}
+}

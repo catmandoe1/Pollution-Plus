@@ -1,0 +1,75 @@
+{
+  "item.pollutionplus.void_ingot": "Void Ingot",
+  "item.pollutionplus.location_marker": "Location Marker",
+  "item.pollutionplus.filter_core_weak": "Weak Filter Core",
+  "item.pollutionplus.filter_core": "Filter Core",
+  "item.pollutionplus.fan": "Fan",
+
+  "block.pollutionplus.incinerator": "Incinerator",
+  "block.pollutionplus.infinite_filter": "Infinite Filter",
+  "block.pollutionplus.pollution_deleter": "Pollution Deleter",
+
+  "block.pollutionplus.powered_filter_iron": "Iron Powered Filter",
+  "block.pollutionplus.powered_filter_gold": "Gold Powered Filter",
+  "block.pollutionplus.powered_filter_diamond": "Diamond Powered Filter",
+  "block.pollutionplus.powered_filter_void": "Void Powered Filter",
+
+  "block.pollutionplus.pollution_pump": "Pollution Pump",
+  "block.pollutionplus.pipe": "Pollution Pipe",
+
+  "__comment": "JEI YAP",
+  "jei.pollutionplus.description.powered_filters": "Instead of using traditional filters, this type of \"filter\" uses power to delete the pollutants.\n\nEach tier has varying power requirements and cooldowns.\n\nThe cooldown is the time between deleting a pollutant and not how often they try to delete.",
+  "block.pollutionplus.infinite_filter.jei": "A filter that once activated using the activation item (by default nether star), will forever delete pollution passing through it.\n\nHas no cooldown on the filtering speed, activation item dropped when destroyed.",
+  "block.pollutionplus.pollution_deleter.jei": "Large scale pollution deletion machine that deletes all pollution between 2 points.\n\nGoes block by block with a set cooldown.\n\nUse a location marker to more easily set the points.",
+  "block.pollutionplus.incinerator.jei": "Deletes all pollution around it self in one big burst requiring lots of power.",
+  "block.pollutionplus.pollution_pump.jei": "Pumps pollution from around the top pollution pipe connected to the top of the pump.\n\nThe pump will try to push the pumped pollutants into horizontally adjacent filters (from PollutionPlus & Adpother). If there's none, a random side with be chosen to pump the pollution to.\n\nA pollution pipe IS required for the pump to function!",
+  "block.pollutionplus.pipe.jei": "Used for the pollution pump to reach pollution.\n\nWorks similar to scaffolding (building, removing).",
+  "item.pollutionplus.location_marker.jei": "Sneak right click a block to save its position, or sneak right click in the air to save the players position.\n\nRight clicking a pollution deleter with a marker with a saved position will set the deleter's start point to the saved position. Sneak right clicking will set the deleter's end point instead.",
+  "jei.pollutionplus.infinite_filter.title": "Infinite Filter Activation",
+
+  "___comment": "JADE!",
+  "jade.pollutionplus.pollution_deleter.current_position": "Current Position: x%d, y%d, z%d",
+  "config.jade.plugin_pollutionplus.pollution_deleter": "Pollution Deleter",
+  "config.jade.plugin_pollutionplus.incinerator": "Incinerator",
+  "config.jade.plugin_pollutionplus.powered_filter": "Powered Filter",
+  "config.jade.plugin_pollutionplus.infinite_filter": "Infinite Filter",
+  "config.jade.plugin_pollutionplus.pollution_pump": "Pollution Pump",
+  "jade.pollutionplus.pollution_pump.require_pipe": "Requires a Pollution Pipe!",
+  "jade.pollutionplus.pollution_pump.pipe_top": "Top Pipe Y Level: %d",
+  "jade.pollutionplus.infinite_filter.active": "Active: Yes",
+  "jade.pollutionplus.infinite_filter.inactive": "Active: No",
+  "jade.pollutionplus.cooldown_seconds": "Cooldown: %d Seconds",
+  "jade.pollutionplus.cooldown_ticks": "Cooldown: %d Ticks",
+
+  "tooltip.pollutionplus.hold_ctrl": "Hold CTRL for more info",
+  "tooltip.pollutionplus.infinite_filter": "Right click with a \"%s\" to activate",
+  "tooltip.pollutionplus.powered_filter.line1": "%dt cooldown",
+  "tooltip.pollutionplus.powered_filter.line2": "Uses: %dRF/t",
+  "tooltip.pollutionplus.pollution_pump.line1": "Range: %d blocks",
+  "tooltip.pollutionplus.pollution_pump.line2": "Uses: %dRF/t",
+  "tooltip.pollutionplus.pollution_pump.line3": "%dt cooldown",
+
+  "tooltip.pollutionplus.incinerator.line1": "Range: %d blocks",
+  "tooltip.pollutionplus.incinerator.line2": "Uses: %dRF per activation",
+  "tooltip.pollutionplus.incinerator.line3": "%dt cooldown",
+
+  "tooltip.pollutionplus.pollution_deleter.line1": "Horizontal Range: %d blocks",
+  "tooltip.pollutionplus.pollution_deleter.line2": "Uses: %dRF/t",
+  "tooltip.pollutionplus.pollution_deleter.line3": "%dt cooldown",
+
+  "tooltip.pollutionplus.location_marker": "Selected Position:",
+  "tooltip.pollutionplus.location_marker.hint": "Sneak right click a block or in the air to record a position",
+
+  "actionbar.pollutionplus.location_marker.set": "Position Saved: X: %d, Y: %d, Z: %d",
+  "actionbar.pollutionplus.location_marker.applyAA": "Set Deleter Start Position",
+  "actionbar.pollutionplus.location_marker.applyBB": "Set Deleter End Position",
+
+  "gui.pollutionplus.pollution_deleter.areaAA": "Starting Point",
+  "gui.pollutionplus.pollution_deleter.areaBB": "End Point",
+
+  "creativetab.pollutionplus.title": "Pollution Plus",
+
+  "_comment": "SOUND SUBTITLES",
+  "block.subtitle.incinerator.work": "Incinerator work",
+  "item.subtitle.location_marker.use": "Location marker use"
+}

@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=false": {
+			"model": "pollutionplus:block/powered_filters/diamond_powered_filter_off"
+		},
+		"powered=true": {
+			"model": "pollutionplus:block/powered_filters/diamond_powered_filter_on"
+		}
+	}
+}

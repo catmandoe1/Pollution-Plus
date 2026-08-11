@@ -16,15 +16,18 @@ out
 # gradle
 build
 .gradle
+gradle/
+run/
+run-data/
 
 # other
 eclipse
 run
-CREDITS.txt
+
+# Files from Forge MDK
+forge*changelog.txt
+forge-1.20.1-47.4.0-mdk.zip
 LICENSE.txt
-LICENSE-Paulscode IBXM Library.txt
-LICENSE-Paulscode SoundSystem CodecIBXM.txt
 README.txt
-gradle/
-daf
+CREDITS.txt
 changelog.txt

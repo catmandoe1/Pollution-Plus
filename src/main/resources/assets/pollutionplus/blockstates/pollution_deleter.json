@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=false": {
+			"model": "pollutionplus:block/pollution_deleter_off"
+		},
+		"powered=true": {
+			"model": "pollutionplus:block/pollution_deleter_on"
+		}
+	}
+}

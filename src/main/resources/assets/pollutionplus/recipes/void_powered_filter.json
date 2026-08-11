@@ -1,1 +1,0 @@
-{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"type":"forge:ore_dict","ore":"ingotSteel"}, "B":{"item":"minecraft:diamond"}, "C":{"item":"pollutionplus:star_void_off"}},"result":{"item":"pollutionplus:tile_void_powered_filter"}}
