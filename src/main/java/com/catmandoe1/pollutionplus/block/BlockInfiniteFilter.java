@@ -1,6 +1,7 @@
 package com.catmandoe1.pollutionplus.block;
 
 import com.catmandoe1.pollutionplus.Config;
+import com.catmandoe1.pollutionplus.PPSounds;
 import com.catmandoe1.pollutionplus.block.poweredFilters.BlockPoweredFilter;
 import com.catmandoe1.pollutionplus.item.PPItems;
 import com.catmandoe1.pollutionplus.tileentities.TileEntityInfiniteFilter;
@@ -9,6 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -45,10 +47,15 @@ public class BlockInfiniteFilter extends BlockPoweredFilter {
 		return TileEntityInfiniteFilter::update;
 	}
 
+	private static void playWorkSound(Level level, BlockPos worldPosition) {
+		level.playSound(null, worldPosition, PPSounds.BLOCK_INFINITE_FILTER_USE.get(), SoundSource.BLOCKS, 1f, 1f);
+	}
+
 	@Override
 	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		if (!pLevel.isClientSide() && !pState.getValue(POWERED)) {
 			if (pPlayer.isHolding(Config.infiniteFilterActivationItem) && pHand == InteractionHand.MAIN_HAND) {
+				playWorkSound(pLevel, pPos);
 
 				//pLevel.sendBlockUpdated(pPos, pState, pState.setValue(POWERED, true), 3);
 				pLevel.setBlock(pPos, pState.setValue(POWERED, true), 3); // update block

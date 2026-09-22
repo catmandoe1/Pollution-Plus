@@ -1,1 +1,0 @@
-{"type":"minecraft:crafting_shapeless","result":{"item":"pollutionplus:void_ingot","count":2},"ingredients":[{"type":"forge:ore_dict","ore":"ingotIron"},{"type":"forge:ore_dict","ore":"ingotGold"},{"type":"forge:ore_dict","ore":"gemEnderPearl"}]}

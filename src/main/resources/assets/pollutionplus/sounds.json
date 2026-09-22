@@ -1,7 +1,7 @@
 {
 	"block.incinerator.work" : {
 		"category": "block",
-		"subtitle": "block.subtitle.incinerator.work",
+		"subtitle": "subtitle.pollutionplus.block.incinerator.work",
 		"sounds": [
 				"pollutionplus:block/incinerator/zap1",
 				"pollutionplus:block/incinerator/zap2"
@@ -9,9 +9,16 @@
 	},
 	"item.location_marker.use": {
 		"category": "player",
-		"subtitle": "item.subtitle.location_marker.use",
+		"subtitle": "subtitle.pollutionplus.item.location_marker.use",
 		"sounds": [
-			"pollutionplus:block/location_marker_use"
+			"pollutionplus:item/location_marker_use"
+		]
+	},
+	"block.infinite_filter.use": {
+		"category": "block",
+		"subtitle": "subtitle.pollutionplus.block.infinite_filter.use",
+		"sounds": [
+			"pollutionplus:block/infinite_filter_use"
 		]
 	}
 }
