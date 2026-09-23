@@ -14,10 +14,10 @@ import s11.mod.objects.blocks.BlockBase;
 public class VoidOre extends BlockBase {
 
 	public VoidOre(String name, Material material) {
-		super(name, material);
-		this.setHardness(3.0F);
-		this.setResistance(15.0F);
-		this.setHarvestLevel("pickaxe", 3);
+		super(name, material, 3.0f, 15.0f, "pickaxe", 3);
+//		this.setHardness(3.0F);
+//		this.setResistance(15.0F);
+//		this.setHarvestLevel("pickaxe", 3);
 	}
 	
 	@SideOnly(Side.CLIENT)
