@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import s11.mod.Main;
 import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.BlockBase;
@@ -26,6 +28,7 @@ public class BlockDiamondPoweredFilter extends BlockPoweredFilterBase {
 
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (PlayerPressing.isLeftCrtlDown()) {
@@ -35,7 +38,7 @@ public class BlockDiamondPoweredFilter extends BlockPoweredFilterBase {
 			tooltip.add(TextFormatting.BLUE + "" + PollutionPlusConfig.PoweredFilters.diamond.filterPowerUse + " RF/t");
 			tooltip.add(TextFormatting.BLUE + "" + PollutionPlusConfig.PoweredFilters.diamond.filterSpeed + " " + TextHelper.getLang("global.cooldown"));
 		} else {
-			tooltip.add(TextFormatting.RED + I18n.format("global.ctrl_help"));
+			tooltip.add(TextFormatting.GRAY + I18n.format("global.ctrl_help"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}

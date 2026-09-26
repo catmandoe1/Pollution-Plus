@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import s11.mod.objects.items.ItemBase;
 import s11.mod.objects.items.ItemInfused;
 import s11.mod.objects.items.ItemToolTipAuto;
+import s11.mod.objects.items.unique.ItemLocationMarker;
 import s11.mod.objects.items.unique.ToolAllenKey;
 import s11.mod.objects.items.unique.VoidStar;
 
@@ -37,6 +38,7 @@ public class ItemInit {
 	// Tools
 	//public static final Item TOOL_CHIPPER = new ToolChipper("tool_chipper"); replaced by hydraulic press
 	//public static final Item ALLEN_KEY = new ToolAllenKey("allen_key"); 
+	public static final ItemLocationMarker LOCATION_MARKER = new ItemLocationMarker("location_marker");
 	
 	// Infused
 	public static final Item SHARD_VOID_INFUSED = new ItemInfused("shard_void_infused"); // iron pf

@@ -11,12 +11,16 @@ import s11.mod.objects.blocks.unique.BlockAlloyFurnace;
 import s11.mod.objects.blocks.unique.BlockDischarger;
 import s11.mod.objects.blocks.unique.BlockHydraulicPress;
 import s11.mod.objects.blocks.unique.BlockIncinerator;
+import s11.mod.objects.blocks.unique.BlockInfiniteFilter;
+import s11.mod.objects.blocks.unique.BlockPollutionDeleter;
 import s11.mod.objects.blocks.unique.BlockPowerInfuser;
 import s11.mod.objects.blocks.unique.BlockVoidOre;
 import s11.mod.objects.blocks.unique.powered_filters.BlockDiamondPoweredFilter;
 import s11.mod.objects.blocks.unique.powered_filters.BlockGoldPoweredFilter;
 import s11.mod.objects.blocks.unique.powered_filters.BlockIronPoweredFilter;
 import s11.mod.objects.blocks.unique.powered_filters.BlockVoidPoweredFilter;
+import s11.mod.objects.blocks.unique.pump.BlockPollutionPipe;
+import s11.mod.objects.blocks.unique.pump.BlockPollutionPump;
 
 public class BlockInit {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();	
@@ -39,9 +43,15 @@ public class BlockInit {
 	public static final Block TILE_ALLOY_FURNACE = new BlockAlloyFurnace("tile_alloy_furnace", Material.IRON, 3, 10, "pickaxe", 1);
 	public static final Block TILE_DISCHARGER = new BlockDischarger("tile_discharger", Material.IRON, 3, 10, "pickaxe", 2);
 	
+	public static final Block TILE_POLLUTION_PUMP = new BlockPollutionPump("tile_pollution_pump", Material.IRON, 3, 10, "pickaxe", 2);
+	public static final Block PIPE = new BlockPollutionPipe("pipe", Material.IRON, 2, 6, "pickaxe", 2);
+	
+	public static final Block TILE_POLLUTION_DELETER = new BlockPollutionDeleter("tile_pollution_deleter", Material.IRON, 2, 6, "pickaxe", 2);
+	
 	// Filters - material is leaves so pollution passes through it
 	public static final Block TILE_IRON_POWERED_FILTER = new BlockIronPoweredFilter("tile_iron_powered_filter", Material.LEAVES, 3, 10, "pickaxe", 2);
 	public static final Block TILE_GOLD_POWERED_FILTER = new BlockGoldPoweredFilter("tile_gold_powered_filter", Material.LEAVES, 2, 8, "pickaxe", 2);
 	public static final Block TILE_DIAMOND_POWERED_FILTER = new BlockDiamondPoweredFilter("tile_diamond_powered_filter", Material.LEAVES, 6, 15, "pickaxe", 3);
 	public static final Block TILE_VOID_POWERED_FILTER = new BlockVoidPoweredFilter("tile_void_powered_filter", Material.LEAVES, 4, 12.5F, "pickaxe", 3);
+	public static final Block TILE_INFINITE_FILTER = new BlockInfiniteFilter("tile_infinite_filter",  Material.LEAVES, 2, 20, "pickaxe", 2);
 }

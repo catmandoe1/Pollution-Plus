@@ -35,10 +35,13 @@ public class BlockIncinerator extends BlockBase {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (PlayerPressing.isCrtlDown()) {
-			tooltip.add(I18n.format("tile.tile_incinerator.tooltip1") + " " + (float)(PollutionPlusConfig.Machines.incinerator.powerUse) / 1000000 + "MRF");
-			tooltip.add(TextFormatting.RED + I18n.format("tile.tile_incinerator.tooltip2"));
+//			tooltip.add(I18n.format("tile.tile_incinerator.tooltip1") + " " + (float)(PollutionPlusConfig.Machines.incinerator.powerUse) / 1000000 + "MRF");
+//			tooltip.add(TextFormatting.RED + I18n.format("tile.tile_incinerator.tooltip2"));
+			tooltip.add(TextFormatting.AQUA + I18n.format("tooltip.pollutionplus.incinerator.line1", PollutionPlusConfig.Machines.incinerator.workRange));
+			tooltip.add(TextFormatting.AQUA + I18n.format("tooltip.pollutionplus.incinerator.line2", PollutionPlusConfig.Machines.incinerator.powerUse));
+			tooltip.add(TextFormatting.AQUA + I18n.format("tooltip.pollutionplus.incinerator.line3", PollutionPlusConfig.Machines.incinerator.workSpeed));
 		} else {
-			tooltip.add(TextFormatting.RED + I18n.format("global.ctrl_help"));
+			tooltip.add(TextFormatting.GRAY + I18n.format("global.ctrl_help"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}

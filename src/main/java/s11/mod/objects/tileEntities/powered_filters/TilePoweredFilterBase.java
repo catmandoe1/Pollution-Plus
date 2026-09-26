@@ -18,8 +18,9 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.unique.powered_filters.BlockIronPoweredFilter;
+import s11.mod.objects.blocks.unique.powered_filters.IFilter;
 
-public class TilePoweredFilterBase extends TileEntity implements ITickable {
+public class TilePoweredFilterBase extends TileEntity implements ITickable, IFilter {
 	private final int maxTransfer = Integer.MAX_VALUE;
 	private final int maxExtract = Integer.MAX_VALUE;
 	private final EnergyStorage energy = new EnergyStorage(getMaxEnergyCap(), maxTransfer, maxExtract);
@@ -218,5 +219,25 @@ public class TilePoweredFilterBase extends TileEntity implements ITickable {
 		if (world.getBlockState(pos) != null) {
 			world.setBlockState(pos, world.getBlockState(pos).withProperty(getBlockPropertyACTIVE(), isPowered));
 		}
+	}
+
+	@Override
+	public boolean canWork() {
+		return this.canRun();
+	}
+
+	@Override
+	public boolean hasCooledOff() {
+		return !this.isCooldown;
+	}
+
+	@Override
+	public boolean fakeUse() {
+		if (this.hasCooledOff()) {
+			this.isCooldown = true;
+			this.counter = 1;
+			return true;
+		}
+		return false;
 	}
 }

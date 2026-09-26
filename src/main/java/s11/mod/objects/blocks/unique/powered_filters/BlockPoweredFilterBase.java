@@ -32,7 +32,7 @@ public class BlockPoweredFilterBase extends BlockBase implements ISmokeContainer
 	public BlockPoweredFilterBase(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
 		super(name, material, hardness, resistance, harvestTool, harvestLevel);
 		setDefaultState(blockState.getBaseState().withProperty(ACTIVE, false));
-		setLightOpacity(16);
+		setLightOpacity(0); // 0 opacity means 100% transparent (bit odd)
 
 	}
 	
@@ -73,12 +73,24 @@ public class BlockPoweredFilterBase extends BlockBase implements ISmokeContainer
 	}
 	
 	@Override
+	public boolean causesSuffocation(IBlockState state) {
+		return false;
+	}
+	
+	@Override
+	public int getLightValue(IBlockState state) {
+		return 0;
+	}
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isTranslucent(IBlockState state) {
 		return true;
 	}
 	
-	/*
+	
+	
+	/**
 	 * credit to EnderLanky for this code!
 	 */
 	@Override
@@ -95,16 +107,15 @@ public class BlockPoweredFilterBase extends BlockBase implements ISmokeContainer
 		return true;
 	}
 	
-	@SuppressWarnings("incomplete-switch")
 	@Override
 	public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 		switch(side) {
-		case DOWN:
-		case UP:
-			return false;
+			case DOWN:
+			case UP:
+				return false;
+			default:
+				return true;
 		}
-		
-		return true;
 	}
 
 	@Override

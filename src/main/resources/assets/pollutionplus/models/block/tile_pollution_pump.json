@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"up": "pollutionplus:blocks/pollution_pump/pump_top",
+		"down": "pollutionplus:blocks/pollution_pump/steel_block",
+		"north": "pollutionplus:blocks/pollution_pump/front_off",
+		"south": "pollutionplus:blocks/pollution_pump/steel_block",
+		"east": "pollutionplus:blocks/pollution_pump/steel_block",
+		"west": "pollutionplus:blocks/pollution_pump/steel_block",
+		"particle": "pollutionplus:blocks/pollution_pump/steel_block"
+	}
+}

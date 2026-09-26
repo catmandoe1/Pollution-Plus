@@ -1,0 +1,31 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "pollutionplus:tile_pollution_pump"
+	},
+    "variants": {
+		"inventory": [
+            {}
+        ],
+		"facing": {
+			"north": {},
+            "east": {
+                "y": 90
+            },
+            "south": {
+                "y": 180
+            },
+            "west": {
+                "y": 270
+            }
+		},
+        "active": {
+			"true": {
+				"textures": {
+					"north": "pollutionplus:blocks/pollution_pump/front_on"
+				}
+			},
+			"false": {}
+		}
+    }
+}

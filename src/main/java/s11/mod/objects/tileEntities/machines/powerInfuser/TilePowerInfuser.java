@@ -22,14 +22,13 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import s11.mod.config.IncineratorConfig;
-import s11.mod.config.PowerInfuserConfig;
+import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.unique.BlockIncinerator;
 import s11.mod.objects.blocks.unique.BlockPowerInfuser;
 import s11.mod.recipes.PowerInfuserRecipes;
 
 public class TilePowerInfuser extends TileEntity implements ITickable {
-	private final int maxCapacity = PowerInfuserConfig.infuserMaxCapacity;
+	private final int maxCapacity = PollutionPlusConfig.Machines.powerInfuser.maxCapacity;
 	private final int maxTransfer = Integer.MAX_VALUE;
 	private final int maxExtract = Integer.MAX_VALUE;
 	private final EnergyStorage energy = new EnergyStorage(maxCapacity, maxTransfer, maxExtract);
@@ -108,7 +107,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 	
 	public boolean canActivate() {
 		//addOrRemoveEnergy(100);
-		return energy.getEnergyStored() >= PowerInfuserConfig.infuserOperationCost;
+		return energy.getEnergyStored() >= PollutionPlusConfig.Machines.powerInfuser.baseOperationCost;
 	}
 	
 	public boolean isInfusing() {
@@ -136,7 +135,7 @@ public class TilePowerInfuser extends TileEntity implements ITickable {
 		ItemStack output = handler.getStackInSlot(1);
 				
 		if(canActivate() && canInfuse()) {
-			addOrRemoveEnergy((~(Math.abs(PowerInfuserConfig.infuserOperationCost - 1)))); //removes energy per tick
+			addOrRemoveEnergy((~(Math.abs(PollutionPlusConfig.Machines.powerInfuser.baseOperationCost - 1)))); //removes energy per tick
 			progress ++;
 			
 			if (progress >= MAXPROGRESS) {

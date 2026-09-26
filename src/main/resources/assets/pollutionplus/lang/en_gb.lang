@@ -1,5 +1,5 @@
 # GLOBALS
-global.ctrl_help=Hold Ctrl for help
+global.ctrl_help=Hold CTRL for more info
 global.disc_stats=Stats:
 global.cooldown=Tick Cooldown
 global.disabled=DISABLED

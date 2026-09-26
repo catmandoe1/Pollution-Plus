@@ -1,6 +1,8 @@
 package s11.mod;
 
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -9,6 +11,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import s11.mod.config.ValidateInfiniteFilterItem;
 import s11.mod.integration.oreDict.OreDictionaryRegister;
 import s11.mod.proxy.CommonProxy;
 import s11.mod.recipes.SmeltingInit;
@@ -21,6 +24,7 @@ public class Main {
 	@Instance
 	public static Main instance;
 	
+	public static Logger logger;
 	public static final CreativeTabs pollutionplustab = new PollutionPlusTab("pollutionplustab");
 		
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.COMMON)
@@ -28,6 +32,7 @@ public class Main {
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
 		RegisteryHandler.otherRegisteries();
 	}
 
@@ -40,6 +45,6 @@ public class Main {
 		
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
-		
+		ValidateInfiniteFilterItem.isFilterItemValid();
 	}
 }

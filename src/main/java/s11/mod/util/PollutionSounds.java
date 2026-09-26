@@ -14,6 +14,8 @@ public class PollutionSounds {
 	public static SoundEvent BLOCK_HYDRAULIC_PRESS_RUNNING; //										hydraulic press 
 	public static SoundEvent BLOCK_INCINERATOR_WORK; //												incinerator
 	public static SoundEvent BLOCK_DISCHARGER_WORK, BLOCK_DISCHARGER_RECIPE_COMPLETE; //			discharger
+	public static SoundEvent BLOCK_INFINITE_FILTER_USE; //											infinite filter
+	public static SoundEvent ITEM_LOCATION_MARKER_USE; //											location marker
 	
 	public static void registerSounds() {
 		BLOCK_POWER_INFUSER_RUNNING = register("block.power_infuser.running");
@@ -24,6 +26,8 @@ public class PollutionSounds {
 		BLOCK_INCINERATOR_WORK = register("block.incinerator.work");
 		BLOCK_DISCHARGER_WORK = register("block.discharger.work");
 		BLOCK_DISCHARGER_RECIPE_COMPLETE = register("block.discharger.recipe_complete");
+		BLOCK_INFINITE_FILTER_USE = register("block.infinite_filter.use");
+		ITEM_LOCATION_MARKER_USE = register("item.location_marker.use");
 	}
 	
 //	private static SoundEvent register(String name) {

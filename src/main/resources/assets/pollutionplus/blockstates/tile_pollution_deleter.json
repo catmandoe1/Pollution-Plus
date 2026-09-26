@@ -1,0 +1,20 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "pollutionplus:tile_pollution_deleter"
+	},
+    "variants": {
+        "powered": {
+			"true": {
+				"textures": {
+					"north": "pollutionplus:blocks/pollution_deleter/pollution_deleter_side_powered",
+					"south": "pollutionplus:blocks/pollution_deleter/pollution_deleter_side_powered",
+					"east": "pollutionplus:blocks/pollution_deleter/pollution_deleter_side_powered",
+					"west": "pollutionplus:blocks/pollution_deleter/pollution_deleter_side_powered",
+					"particle": "pollutionplus:blocks/pollution_deleter/pollution_deleter_side_powered"
+                }
+			},
+			"false": {}
+		}
+    }
+}

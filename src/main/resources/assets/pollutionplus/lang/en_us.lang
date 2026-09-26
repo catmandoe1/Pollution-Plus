@@ -1,5 +1,5 @@
 # GLOBALS
-global.ctrl_help=Hold Ctrl for help
+global.ctrl_help=Hold CTRL for more info
 global.disc_stats=Stats:
 global.cooldown=Tick Cooldown
 global.disabled=DISABLED
@@ -58,6 +58,8 @@ tile.tile_power_infuser.name=Power Infuser
 tile.tile_hydraulic_press.name=Hydraulic Press
 tile.tile_alloy_furnace.name=Alloy Furnace
 tile.tile_discharger.name=Discharger
+tile.tile_infinite_filter.name=Infinite Filter
+tile.tile_pollution_deleter.name=Pollution Deleter
 
 # MACHINE - TOOLTIPS
 tile.tile_alloy_furnace.tooltip=Used to combine metals together to make new ones
@@ -68,8 +70,26 @@ tile.tile_discharger.tooltip=Extracts power from infused items and converts then
 tile.tile_incinerator.tooltip1=Deletes all pollution around the incinerator in a 5 block radius for
 tile.tile_incinerator.tooltip2=Appling redstone power to the incinerator turns it off
 
+tooltip.pollutionplus.incinerator.line1=Range: %d blocks
+tooltip.pollutionplus.incinerator.line2=Uses: %dRF per activation
+tooltip.pollutionplus.incinerator.line3=%dt cooldown
+
+tooltip.pollutionplus.infinite_filter=Right click with a "%s" to activate
+tooltip.pollutionplus.infinite_filter.error=INVALID ACTIVATION ITEM SET IN CONFIG
+
+tooltip.pollutionplus.pollution_pump.line1=Range: %d blocks
+tooltip.pollutionplus.pollution_pump.line2=Uses: %dRF/t
+tooltip.pollutionplus.pollution_pump.line3=%dt cooldown
+
+tooltip.pollutionplus.pollution_deleter.line1=Horizontal Range: %d blocks
+tooltip.pollutionplus.pollution_deleter.line2=Uses: %dRF/t
+tooltip.pollutionplus.pollution_deleter.line3=%dt cooldown
+
 # GUI DISCHARGER
 discharger.disc1=Time Till Done:
+
+gui.pollutionplus.pollution_deleter.areaAA=Starting Point
+gui.pollutionplus.pollution_deleter.areaBB=End Point
 
 # FILTERS
 tile.tile_iron_powered_filter.name=Iron Powered Filter
@@ -93,6 +113,14 @@ itemGroup.pollutionplustab=Pollution Plus
 # CHAT MESSAGES
 chat.allen_key.fail_message=No Structure
 chat.allen_key.success_message=Built Structure!
+
+# ACTION BAR
+actionbar.pollutionplus.location_marker.set=Position Saved: X: %d, Y: %d, Z: %d
+actionbar.pollutionplus.location_marker.applyAA=Set Deleter Start Position
+actionbar.pollutionplus.location_marker.applyBB=Set Deleter End Position
+
+tooltip.pollutionplus.location_marker=Selected Position:
+tooltip.pollutionplus.location_marker.hint=Sneak right click a block or in the air to record a position
 
 # CONFIG
 config.general=General

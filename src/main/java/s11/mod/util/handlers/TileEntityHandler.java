@@ -2,6 +2,9 @@ package s11.mod.util.handlers;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import s11.mod.init.BlockInit;
+import s11.mod.objects.tileEntities.TileInfiniteFilter;
+import s11.mod.objects.tileEntities.TilePollutionDeleter;
+import s11.mod.objects.tileEntities.TilePollutionPump;
 import s11.mod.objects.tileEntities.machines.TileAlloyFurnace;
 import s11.mod.objects.tileEntities.machines.TileDischarger;
 import s11.mod.objects.tileEntities.machines.TileHydraulicPress;
@@ -22,6 +25,9 @@ public class TileEntityHandler {
 		GameRegistry.registerTileEntity(TileAlloyFurnace.class, BlockInit.TILE_ALLOY_FURNACE.getRegistryName());
 		GameRegistry.registerTileEntity(TileDischarger.class, BlockInit.TILE_DISCHARGER.getRegistryName());
 		//GameRegistry.registerTileEntity(TileVoidMinerController.class, BlockInit.VOID_MINER_CONTROLLER.getRegistryName());
+		GameRegistry.registerTileEntity(TileInfiniteFilter.class, BlockInit.TILE_INFINITE_FILTER.getRegistryName());
+		GameRegistry.registerTileEntity(TilePollutionPump.class, BlockInit.TILE_POLLUTION_PUMP.getRegistryName());
+		GameRegistry.registerTileEntity(TilePollutionDeleter.class, BlockInit.TILE_POLLUTION_DELETER.getRegistryName());
 		
 		//powered filters
 		GameRegistry.registerTileEntity(TileIronPoweredFilter.class, BlockInit.TILE_IRON_POWERED_FILTER.getRegistryName());
