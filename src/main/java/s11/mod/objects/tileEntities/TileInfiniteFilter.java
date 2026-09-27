@@ -10,8 +10,8 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import s11.mod.objects.blocks.unique.BlockInfiniteFilter;
-import s11.mod.objects.blocks.unique.powered_filters.IFilter;
+import s11.mod.objects.blocks.BlockInfiniteFilter;
+import s11.mod.objects.blocks.IFilter;
 
 public class TileInfiniteFilter extends TileEntity implements ITickable, IFilter {
 	@Override

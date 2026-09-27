@@ -10,18 +10,12 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 import s11.mod.Main;
 import s11.mod.init.BlockInit;
 import s11.mod.init.ItemInit;
-import s11.mod.network.MessagePollutionDeleter;
 import s11.mod.network.PPNetwork;
 import s11.mod.util.PollutionSounds;
-import s11.mod.util.Reference;
 import s11.mod.util.interfaces.HasModel;
-import s11.mod.world.gen.WorldGenCustomOres;
 
 @EventBusSubscriber
 public class RegisteryHandler {
@@ -61,7 +55,6 @@ public class RegisteryHandler {
 	}
 	
 	public static void otherRegisteries() {
-		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 50);
 		TileEntityHandler.registerTileEntities();
 		PPNetwork.registerNetwork();
 	}

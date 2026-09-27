@@ -78,7 +78,7 @@ public class GuiPollutionDeleter extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		// title
-		drawCentredString(I18n.format("tile.tile_pollution_deleter.name"), middleX, this.topPos + 6, 0x404040, false);
+		drawCentredString(I18n.format("tile.pollutionplus.tile_pollution_deleter.name"), middleX, this.topPos + 6, 0x404040, false);
 		
 		// point 1 cords
 		drawCentredString(I18n.format("gui.pollutionplus.pollution_deleter.areaAA"), middleX, 29, 0x404040, false);

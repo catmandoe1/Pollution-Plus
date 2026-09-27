@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["AAA","ABA","AAA"],"key":{ "A":{"item":"minecraft:diamond"}, "B":{"item":"pollutionplus:ingot_refined_void_infused"}},"result":{"item":"pollutionplus:tile_diamond_powered_filter"}}
+{"type":"minecraft:crafting_shaped","pattern":["ABA","BCB","ABA"],"key":{ "A":{"type":"forge:ore_dict","ore":"dustRedstone"}, "B":{"type":"forge:ore_dict","ore":"gemDiamond"}, "C":{"item":"pollutionplus:filter_core"}},"result":{"item":"pollutionplus:tile_diamond_powered_filter"}}

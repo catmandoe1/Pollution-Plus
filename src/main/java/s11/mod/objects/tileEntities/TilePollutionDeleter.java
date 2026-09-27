@@ -18,8 +18,8 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.Main;
 import s11.mod.config.PollutionPlusConfig;
-import s11.mod.objects.blocks.unique.BlockPollutionDeleter;
-import s11.mod.objects.blocks.unique.pump.BlockPollutionPump;
+import s11.mod.objects.blocks.BlockPollutionDeleter;
+import s11.mod.objects.blocks.pump.BlockPollutionPump;
 
 public class TilePollutionDeleter extends TileEntity implements ITickable {
 	private long lastWork;

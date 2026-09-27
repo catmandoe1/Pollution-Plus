@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","CDC","ABA"],"key":{ "A":{"type":"forge:ore_dict","ore":"ingotIron"}, "B":{"item":"pollutionplus:filter_core"}, "C":{"type":"forge:ore_dict","ore":"ingotVoid"}, "D":{"type":"forge:ore_dict","ore":"netherStar"}},"result":{"item":"pollutionplus:tile_pollution_deleter"}}

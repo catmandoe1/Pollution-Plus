@@ -8,6 +8,7 @@ import net.minecraft.item.ItemBlock;
 import s11.mod.Main;
 import s11.mod.init.BlockInit;
 import s11.mod.init.ItemInit;
+import s11.mod.util.Reference;
 import s11.mod.util.interfaces.HasModel;
 
 public class BlockBase extends Block implements HasModel {
@@ -24,8 +25,8 @@ public class BlockBase extends Block implements HasModel {
 	public BlockBase(String name, Material material, float hardness, float resistance, String harvestTool, int harvestLevel) {
 		super(material);
 		//setRegistryName(name);
-		setTranslationKey(name);
-		setRegistryName(name);
+		setTranslationKey(Reference.MODID + "." + name);
+		setRegistryName(Reference.MODID, name);
 		setHardness(hardness);
 		setResistance(resistance);
 		setHarvestLevel(harvestTool, harvestLevel);

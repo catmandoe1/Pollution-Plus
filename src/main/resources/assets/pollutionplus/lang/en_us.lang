@@ -1,169 +1,94 @@
-# GLOBALS
-global.ctrl_help=Hold CTRL for more info
-global.disc_stats=Stats:
-global.cooldown=Tick Cooldown
-global.disabled=DISABLED
-
 # ITEMS
-item.ingot_void.name=Void Ingot
-item.star_void.name=Void Star
-item.shard_void.name=Void Shard
-item.ingot_refined_void.name=Refined Void Ingot
-item.ingot_refined_void_infused.name=Infused Refined Void Ingot
-item.shard_refined_void.name=Refined Void Shard
-item.dust_iron.name=Iron Dust
-item.dust_gold.name=Gold Dust
-item.speck_diamond.name=Diamond Specks
-item.tool_chipper.name=Chipper
-item.binding_agent.name=Binding Agent
-item.primed_binding_agent.name=Primed Binding Agent
-item.refined_clump_void.name=Clump of Refined Void Matter
-item.refinement_gel.name=Refinement Gel
-item.ingot_steel.name=Steel Ingot
-item.shard_void_infused.name=Infused Void Shard
-item.shard_refined_void_infused.name=Infused Refined Void Shard
-item.star_void_off.name=Powerless Void Star
-item.ingot_void_infused.name=Infused Void Ingot
-item.allen_key.name=Allen Key
-item.nugget_steel.name=Steel Nugget
-item.rod_steel.name=Steel Rod
+item.pollutionplus.ingot_void.name=Void Ingot
+item.pollutionplus.location_marker.name=Location Marker
+item.pollutionplus.filter_core_weak.name=Weak Filter Core
+item.pollutionplus.filter_core.name=Filter Core
+item.pollutionplus.fan.name=Fan
 
-# ITEMS - TOOLTIPS
-item.refined_clump_void.tooltip=Needs to be fired before useable!
-item.binding_agent.tooltip=Needs to be fired before useable!
-item.star_void_off.tooltip=Needs to be infused to be used!
-item.allen_key.tooltip=Used to create multiblock structures. - WIP
+# BLOCKS
+tile.pollutionplus.tile_incinerator.name=Pollution Incinerator
+tile.pollutionplus.tile_infinite_filter.name=Infinite Filter
+tile.pollutionplus.tile_pollution_deleter.name=Pollution Deleter
 
-item.void_star.tooltip1=Infinite filter config has to be changed to this item's id for it to be used as the activator
-item.void_star.tooltip2=Can be used as an alternative for activating an infinite filter
+tile.pollutionplus.tile_iron_powered_filter.name=Iron Powered Filter
+tile.pollutionplus.tile_gold_powered_filter.name=Gold Powered Filter
+tile.pollutionplus.tile_diamond_powered_filter.name=Diamond Powered Filter
+tile.pollutionplus.tile_void_powered_filter.name=Void Powered Filter
 
-# TILES
-tile.ore_void.name=Void Ore
-tile.steel_frame.name=Steel Frame
-tile.steel_block.name=Steel Block
-tile.void_miner_energy_component.name=Void Miner Energy Component
-tile.void_miner_heat_sink.name=Void Miner Heat Sink
-tile.void_miner_laser_core.name=Void Miner Mining Laser Core
-tile.void_miner_lens.name=Mining Laser Lens
-tile.void_miner_controller.name=Void Miner Controller
+tile.pollutionplus.tile_pollution_pump.name=Pollution Pump
+tile.pollutionplus.pipe.name=Pollution Pipe
 
-# TILES - TOOLTIPS
-tile.ore_void.tooltip=Sparingly found around Y5 - Y30
-tile.void_miner_controller.tooltip=The brains of the void miner multiblock.
-tile.void_miner_controller.tooltip2=Right click the controller to find where to place blocks to construct the multiblock. Then once finished crouch + right click the controller with the allen key.
+# JEI YAP
+jei.pollutionplus.description.powered_filters=Instead of using traditional filters, this type of "filter" uses power to delete the pollutants.\n\nEach tier has varying power requirements and cooldowns.\n\nThe cooldown is the time between deleting a pollutant and not how often they try to delete.
+block.pollutionplus.infinite_filter.jei=A filter that once activated using the activation item (by default nether star), will forever delete pollution passing through it.\n\nHas no cooldown on the filtering speed, activation item dropped when destroyed.
+block.pollutionplus.pollution_deleter.jei=Large scale pollution deletion machine that deletes all pollution between 2 points.\n\nGoes block by block with a set cooldown.\n\nUse a location marker to more easily set the points.
+block.pollutionplus.incinerator.jei=Deletes all pollution around it self in one big burst requiring lots of power.
+block.pollutionplus.pollution_pump.jei=Pumps pollution from around the top pollution pipe connected to the top of the pump.\n\nThe pump will try to push the pumped pollutants into horizontally adjacent filters (from PollutionPlus & Adpother). If there's none, a random side with be chosen to pump the pollution to.\n\nA pollution pipe IS required for the pump to function!
+block.pollutionplus.pipe.jei=Used for the pollution pump to reach pollution.\n\nWorks similar to scaffolding (building, removing).
+item.pollutionplus.location_marker.jei=Sneak right click a block to save its position, or sneak right click in the air to save the players position.\n\nRight clicking a pollution deleter with a marker with a saved position will set the deleter's start point to the saved position. Sneak right clicking will set the deleter's end point instead.
+jei.pollutionplus.infinite_filter.title=Infinite Filter Activation
 
-# MACHINES
-tile.tile_incinerator.name=Pollution Incinerator
-tile.tile_power_infuser.name=Power Infuser
-tile.tile_hydraulic_press.name=Hydraulic Press
-tile.tile_alloy_furnace.name=Alloy Furnace
-tile.tile_discharger.name=Discharger
-tile.tile_infinite_filter.name=Infinite Filter
-tile.tile_pollution_deleter.name=Pollution Deleter
-
-# MACHINE - TOOLTIPS
-tile.tile_alloy_furnace.tooltip=Used to combine metals together to make new ones
-tile.tile_power_infuser.tooltip=Uses power to infuse certain items
-tile.tile_hydraulic_press.tooltip=Uses power to crush things into small pieces
-tile.tile_discharger.tooltip=Extracts power from infused items and converts then back to un-infused items.
-
-tile.tile_incinerator.tooltip1=Deletes all pollution around the incinerator in a 5 block radius for
-tile.tile_incinerator.tooltip2=Appling redstone power to the incinerator turns it off
-
-tooltip.pollutionplus.incinerator.line1=Range: %d blocks
-tooltip.pollutionplus.incinerator.line2=Uses: %dRF per activation
-tooltip.pollutionplus.incinerator.line3=%dt cooldown
-
+# TOOLTIPS
+tooltip.pollutionplus.hold_ctrl=Hold CTRL for more info
 tooltip.pollutionplus.infinite_filter=Right click with a "%s" to activate
-tooltip.pollutionplus.infinite_filter.error=INVALID ACTIVATION ITEM SET IN CONFIG
-
+tooltip.pollutionplus.infinite_filter.error=INVALID ACTIVATION ITEM IN CONFIG
+tooltip.pollutionplus.powered_filter.disc=This filter uses power to remove pollutants.
+tooltip.pollutionplus.powered_filter.line1=%dt cooldown
+tooltip.pollutionplus.powered_filter.line2=Uses: %dRF/t
 tooltip.pollutionplus.pollution_pump.line1=Range: %d blocks
 tooltip.pollutionplus.pollution_pump.line2=Uses: %dRF/t
 tooltip.pollutionplus.pollution_pump.line3=%dt cooldown
 
+tooltip.pollutionplus.stats=Stats:
+tooltip.pollutionplus.cooldown=Tick Cooldown
+
+# TOOLTIPS - INCINERATOR
+tooltip.pollutionplus.incinerator.line1=Range: %d blocks
+tooltip.pollutionplus.incinerator.line2=Uses: %dRF per activation
+tooltip.pollutionplus.incinerator.line3=%dt cooldown
+
+# TOOLTIPS - POLLUTION DELETER
 tooltip.pollutionplus.pollution_deleter.line1=Horizontal Range: %d blocks
 tooltip.pollutionplus.pollution_deleter.line2=Uses: %dRF/t
 tooltip.pollutionplus.pollution_deleter.line3=%dt cooldown
 
-# GUI DISCHARGER
-discharger.disc1=Time Till Done:
+# TOOLTIPS - LOCATION MARKER
+tooltip.pollutionplus.location_marker=Selected Position:
+tooltip.pollutionplus.location_marker.hint=Sneak right click a block or in the air to record a position
 
-gui.pollutionplus.pollution_deleter.areaAA=Starting Point
-gui.pollutionplus.pollution_deleter.areaBB=End Point
-
-# FILTERS
-tile.tile_iron_powered_filter.name=Iron Powered Filter
-tile.tile_gold_powered_filter.name=Gold Powered Filter
-tile.tile_diamond_powered_filter.name=Diamond Powered Filter
-tile.tile_void_powered_filter.name=Void Powered Filter
-
-# FILTERS - TOOLTIPS
-powered_filters.tooltip=This filter uses power to remove pollutants.
-
-# CONTAINERS
-container.power_infuser=Power Infuser
-container.hydraulic_press=Hydraulic Press
-container.alloy_furnace=Alloy Furnace
-container.discharger=Discharger
-container.void_miner_controller=Void Miner
-
-# TABS
-itemGroup.pollutionplustab=Pollution Plus
-
-# CHAT MESSAGES
-chat.allen_key.fail_message=No Structure
-chat.allen_key.success_message=Built Structure!
-
-# ACTION BAR
+ # ACTIONBAR
 actionbar.pollutionplus.location_marker.set=Position Saved: X: %d, Y: %d, Z: %d
 actionbar.pollutionplus.location_marker.applyAA=Set Deleter Start Position
 actionbar.pollutionplus.location_marker.applyBB=Set Deleter End Position
 
-tooltip.pollutionplus.location_marker=Selected Position:
-tooltip.pollutionplus.location_marker.hint=Sneak right click a block or in the air to record a position
+# GUI
+gui.pollutionplus.pollution_deleter.areaAA=Starting Point
+gui.pollutionplus.pollution_deleter.areaBB=End Point
+
+itemGroup.pollutionplustab=Pollution Plus
+
+# SOUND SUBTITLES
+subtitle.pollutionplus.block.incinerator.work=Pollution incinerator zap
+subtitle.pollutionplus.item.location_marker.use=Location marker use
+subtitle.pollutionplus.block.infinite_filter.use=Infinite filter activation
 
 # CONFIG
-config.general=General
-config.general.tooltip=General Settings
-config.hydraulic_press=Hydraulic Press
-config.power_infuser=Power Infuser
-config.incinerator=Incinerator
-config.alloy_furnace=Alloy Furnace
-config.machines.discharger=Discharger
-config.machine_sounds=Machine Sounds
+config.pollutionplus.general=General
+config.pollutionplus.general.tooltip=General Settings
+config.pollutionplus.machine_sounds=Machine Sounds
+config.pollutionplus.machines.infinite_filter_item=Infinite Filter Activation Item
 
 # CONFIG - POWERED FILTERS
-config.powered_filters=Powered Filters
-config.powered_filters.tooltip=Settings for all the different filters
-config.powered_filters.iron=Iron Filter
-config.powered_filters.gold=Gold Filter
-config.powered_filters.diamond=Diamond Filter
-config.powered_filters.vvoid=Void Filter
+config.pollutionplus.powered_filters=Powered Filters
+config.pollutionplus.powered_filters.tooltip=Settings for all the different filters
+config.pollutionplus.powered_filters.iron=Iron Filter
+config.pollutionplus.powered_filters.gold=Gold Filter
+config.pollutionplus.powered_filters.diamond=Diamond Filter
+config.pollutionplus.powered_filters.vvoid=Void Filter
 
 # CONFIG - MACHINES
-config.machines=Machines
-config.machines.tooltip=Settings for all the different machines
-config.machines.power_infuser=Power Infuser
-config.machines.hydraulic_press=Hydraulic Press
-config.machines.incinerator=Incinerator
-config.machines.alloy_furnace=Alloy Furnace
-config.machines.void_miner_controller=Void Miner Controller
-
-# JEI
-pollutionplus.jei.powerinfuser=Power Infuser
-pollutionplus.jei.hydraulic_press=Hydraulic Press
-pollutionplus.jei.alloy_furnace=Alloy Furnace
-pollutionplus.jei.discharger=Discharger
-
-# JEI RECIPES
-jei.recipe.processTime=Process Time:
-jei.recipe.pertickcost=Process Power:
-jei.recipe.base_pertick_cost=Default Process Power:
-
-# JEI DISCRIPTIONS
-jei.description.incinerator=The incinerator is an powerful machine that deletes carbon, sulfur and dust from the mod "pollution of the realms" for an exchange of 2.5 million RF. \n\nThe incinerator by defualt has a range of 5 blocks and has a cool down of 10 seconds. \n \nAll these values can be changed in the config.
-jei.description.powered_filters=Instead of using traditional filters, this type of "filter" uses power to delete the pollutants. \n\nThe power use between the different types depend on the quality of the core and the stability of the frame.\n\nAll the values can be changed in the config.
-
-# JEI - DISCHARGER
-jei.discharger.power=Total RF:
-jei.discharger.time=Time to Discharge:
+config.pollutionplus.machines=Machines
+config.pollutionplus.machines.tooltip=Settings for all the different machines
+config.pollutionplus.machines.incinerator=Pollution Incinerator
+config.pollutionplus.machines.pollution_deleter=Pollution Deleter
+config.pollutionplus.machines.pollution_pump=Pollution Pump

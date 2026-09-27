@@ -17,7 +17,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.config.PollutionPlusConfig;
-import s11.mod.objects.blocks.unique.powered_filters.BlockDiamondPoweredFilter;
+import s11.mod.objects.blocks.poweredfilters.BlockDiamondPoweredFilter;
 
 public class TileDiamondPoweredFilter extends TilePoweredFilterBase {
 	@Override

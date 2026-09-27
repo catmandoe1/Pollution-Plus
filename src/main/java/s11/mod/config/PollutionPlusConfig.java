@@ -17,117 +17,43 @@ import s11.mod.util.Reference;
 @EventBusSubscriber
 public class PollutionPlusConfig {
 	
-	@LangKey("config.general")
+	@LangKey("config.pollutionplus.general")
 	@Config(modid = Reference.MODID, name = "pollutionplus/general")
 	public static class GeneralConfig {
 		
-//		@Config.Name("All Machine Volume")
-//		@Config.Comment("Turns off or on all machine volume (such as the incinerator zap etc.).")
-//		public static boolean machineVolume = true;
 		
-		@RequiresWorldRestart
-		@Name("Generate Void Ore")
-		@Comment("Enables/Disables ore generation for void ore. Only works when generating new chunks or a new world (already spawned ore wont disappear).")
-		public static boolean generateVoidOre = true;
+		@LangKey("config.pollutionplus.machine_sounds")
+		public static MachineSounds machinesSounds = new MachineSounds(true);
 		
-		@LangKey("config.machine_sounds")
-		public static MachineSounds machinesSounds = new MachineSounds(true, true, true, true, true);
-		
-		public static class MachineSounds {
-			@Name("Hydraulic Press Sound")
-			@Comment("Turns on and off all sounds for this machine")
-			public boolean hydraulicPressSound;
-			
-			@Name("Power Infuser Sound")
-			@Comment("Turns on and off all sounds for this machine")
-			public boolean powerInfuserSound;
-			
-			@Name("Incinerator Sound")
+		public static class MachineSounds {			
+			@Name("Pollution Incinerator Sound")
 			@Comment("Turns on and off all sounds for this machine")
 			public boolean incineratorSound;
-			
-			@Name("Alloy Furnace Sound")
-			@Comment("Turns on and off all sounds for this machine")
-			public boolean alloyFurnaceSound;
-			
-			@Name("Discharger Sound")
-			@Comment("Turns on and off all sounds for this machine")
-			public boolean dischargerSound;
 
-			MachineSounds(boolean hydraulicPressSound, boolean powerInfuserSound, boolean incineratorSound, boolean alloyFurnaceSound, boolean dischargerSound) {
-				this.hydraulicPressSound = hydraulicPressSound; 
-				this.powerInfuserSound = powerInfuserSound;
+			MachineSounds(boolean incineratorSound) {
 				this.incineratorSound = incineratorSound;
-				this.alloyFurnaceSound = alloyFurnaceSound;
-				this.dischargerSound = dischargerSound;
 			}
 		}
 	}
 	
-	@LangKey("config.machines")
+	@LangKey("config.pollutionplus.machines")
 	@Config(modid = Reference.MODID, name = "pollutionplus/machines")
 	public static class Machines {
-		@LangKey("config.machines.hydraulic_press")
-		public static HydraulicPress hydraulicPress = new HydraulicPress(100, 10000);
-		@LangKey("config.machines.power_infuser")
-		public static PowerInfuser powerInfuser = new PowerInfuser(1000, 1000000, 1200);
-		@LangKey("config.machines.incinerator")
+		@LangKey("config.pollutionplus.machines.incinerator")
 		public static Incinerator incinerator = new Incinerator(2500000, 5000000, 200, 5, true);
-		@LangKey("config.machines.alloy_furnace")
-		public static AlloyFurnace alloyFurnace = new AlloyFurnace(100, 10000);
-		@LangKey("config.machines.discharger")
-		public static Discharger discharger = new Discharger(1000, 10000, 90, 2400000);
-		@LangKey("config.machines.void_miner_controller")
-		public static VoidMinerController voidMinerController = new VoidMinerController(35000, 2048, 20);
-		@LangKey("config.pollutionplus.machines.pollution_pump")
-		public static PollutionPump pollutionPump = new PollutionPump(1000, 5, 60, 5);
+		
 		@LangKey("config.pollutionplus.machines.pollution_deleter")
 		public static PollutionDeleter pollutionDeleter = new PollutionDeleter(10000, 1000, 2, 16);
 		
+		@LangKey("config.pollutionplus.machines.pollution_pump")
+		public static PollutionPump pollutionPump = new PollutionPump(1000, 5, 60, 5);
+		
 		@LangKey("config.pollutionplus.machines.infinite_filter_item")
+		@Comment("The item required to activate the infinite filter. (Must be id form)")
+		@RequiresWorldRestart
 		public static String infiniteFilterItem = "minecraft:nether_star";
 		
 		
-		//@LangKey("config.hydraulic_press")
-		public static class HydraulicPress {
-			
-			@Config.Name("Hydraulic press operation cost")
-			@Config.Comment("The amount of rf the machine will use per tick while running.")
-			@Config.RangeInt(min = 0)
-			public int operationCost; //= 100;
-			
-			@Config.Name("Hydraulic press rf capacity")
-			@Config.Comment("The maximum amount of rf the Hydraulic press can hold.")
-			@Config.RangeInt(min = 1)
-			public int maxCapacity; //= 10000;
-			
-			HydraulicPress(int operationCost, int maxCapacity) {
-				this.maxCapacity = maxCapacity;
-				this.operationCost = operationCost;
-			}
-		}
-		
-		public static class PowerInfuser {
-			@Config.Name("Power infuser base operation cost")
-			@Config.Comment("The base amount of rf the machine will use per tick while running.")
-			@Config.RangeInt(min = 0)
-			public int baseOperationCost; //= 1000;
-			
-			@Name("Power infuser infusing speed")
-			@Comment("The speed in which the infuser infuses a item at (ticks)")
-			@RangeInt(min = 1)
-			public int speed;
-			
-			@Config.Name("Power infuser rf capacity")
-			@Config.Comment("The maximum amount of rf the power infuser can hold.")
-			@Config.RangeInt(min = 1)
-			public int maxCapacity; //= 100000;
-			PowerInfuser(int baseOperationCost, int maxCapacity, int speed) {
-				this.maxCapacity = maxCapacity;
-				this.baseOperationCost = baseOperationCost;
-				this.speed = speed;
-			}
-		}
 		
 		public static class Incinerator {
 			@Config.Name("Incinerator operation cost")
@@ -165,87 +91,6 @@ public class PollutionPlusConfig {
 			}
 		}
 		
-		public static class AlloyFurnace {
-			@Name("Alloy furnace operation cost")
-			@Comment("The amount of rf the machine will use per tick while running.")
-			@RangeInt(min = 0)
-			public int operationCost = 100;
-			
-			@Config.Name("Alloy furnace rf capacity")
-			@Config.Comment("The maximum amount of rf the alloy furnace can hold.")
-			@Config.RangeInt(min = 1)
-			public int maxCapacity = 10000;
-			
-			AlloyFurnace(int operationCost, int maxCapacity) {
-				this.maxCapacity = maxCapacity;
-				this.operationCost = operationCost;
-			}
-		}
-		
-		public static class Discharger {
-			@Name("Power extraction")
-			@Comment("The amount of energy that the discharger extracts from the infused item per tick.")
-			@RangeInt(min = 1, max = 10000000)
-			public int energyExtraction;
-			
-			@Name("Max power output")
-			@Comment("The amount of energy that can be outputted by the discharger.")
-			@RangeInt(min = 0)
-			public int energyOutput;
-			
-			@Name("Extraction efficiency")
-			@Comment("Percentage of how much energy of the infused item it extracts and the extraction speed (%).")
-			@RangeInt(min = 1, max = 100)
-			public int extractionEfficiency; 
-			
-			@Name("Discharger rf capacity")
-			@Comment("The capacity of the internal power storage.")
-			@RangeInt(min = 1)
-			public int maxCapacity;
-			
-			/**
-			 * 
-			 * @param energyExtraction
-			 * @param energyOutput
-			 * @param extractionEfficiency
-			 * @param maxCapacity
-			 */
-			Discharger(int energyExtraction, int energyOutput, int extractionEfficiency, int maxCapacity) {
-				this.energyExtraction = energyExtraction;
-				this.energyOutput = energyOutput;
-				this.extractionEfficiency = extractionEfficiency;
-				this.maxCapacity = maxCapacity;
-			}
-		}
-		
-		public static class VoidMinerController {
-			@Name("Controller storage capacity")
-			@Comment("The maximum amount of rf the controller can hold.")
-			@RangeInt(min = 1)
-			public int maxCapacity;
-			
-			@Name("Controller operation cost")
-			@Comment("The amount of rf the controller will use per tick while running.")
-			@RangeInt(min = 0)
-			public int operationCost;
-			
-			@Name("Controller work speed")
-			@Comment("The delay between mines")
-			@RangeInt(min = 0)
-			public int workSpeed;
-			
-			/**
-			 * 
-			 * @param maxCapacity
-			 * @param powerUse
-			 * @param workSpeed
-			 */
-			public VoidMinerController(int maxCapacity, int powerUse, int workSpeed) {
-				this.maxCapacity = maxCapacity;
-				this.operationCost = powerUse;
-				this.workSpeed = workSpeed;
-			}
-		}
 		
 		public static class PollutionPump {
 			@Name("Power capacity")
@@ -306,16 +151,16 @@ public class PollutionPlusConfig {
 		}
 	}
 	
-	@LangKey("config.powered_filters")
+	@LangKey("config.pollutionplus.powered_filters")
 	@Config(modid = Reference.MODID, name = "pollutionplus/powered_filters")
 	public static class PoweredFilters {
-		@LangKey("config.powered_filters.iron")
+		@LangKey("config.pollutionplus.powered_filters.iron")
 		public static PoweredFilter iron = new PoweredFilter(100, 10000, 200);
-		@LangKey("config.powered_filters.gold")
+		@LangKey("config.pollutionplus.powered_filters.gold")
 		public static PoweredFilter gold = new PoweredFilter(250, 10000, 120);
-		@LangKey("config.powered_filters.diamond")
+		@LangKey("config.pollutionplus.powered_filters.diamond")
 		public static PoweredFilter diamond = new PoweredFilter(400, 10000, 50);
-		@LangKey("config.powered_filters.vvoid")
+		@LangKey("config.pollutionplus.powered_filters.vvoid")
 		public static PoweredFilter vvoid = new PoweredFilter(500, 10000, 10);
 		
 		public static class PoweredFilter {

@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import s11.mod.config.ValidateInfiniteFilterItem;
 import s11.mod.integration.oreDict.OreDictionaryRegister;
 import s11.mod.proxy.CommonProxy;
-import s11.mod.recipes.SmeltingInit;
 import s11.mod.tabs.PollutionPlusTab;
 import s11.mod.util.Reference;
 import s11.mod.util.handlers.RegisteryHandler;
@@ -39,7 +38,6 @@ public class Main {
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		RegisteryHandler.initRegistries();
-		SmeltingInit.initSmelting();
 		OreDictionaryRegister.registerOres();
 	}
 		

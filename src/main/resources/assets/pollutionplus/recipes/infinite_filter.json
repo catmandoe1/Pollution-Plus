@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["ABA","B B","ABA"],"key":{ "A":{"item":"minecraft:ender_eye"}, "B":{"type":"forge:ore_dict","ore":"ingotVoid"}},"result":{"item":"pollutionplus:tile_infinite_filter"}}

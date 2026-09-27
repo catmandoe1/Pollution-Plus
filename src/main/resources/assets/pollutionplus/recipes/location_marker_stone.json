@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":[" A","BC","BC"],"key":{ "A":{"item":"minecraft:iron_bars"}, "B":{"item":"minecraft:stone_button"}, "C":{"type":"forge:ore_dict","ore":"ingotIron"}},"result":{"item":"pollutionplus:location_marker"}}

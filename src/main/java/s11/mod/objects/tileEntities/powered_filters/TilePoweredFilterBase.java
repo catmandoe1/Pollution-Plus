@@ -17,8 +17,8 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.config.PollutionPlusConfig;
-import s11.mod.objects.blocks.unique.powered_filters.BlockIronPoweredFilter;
-import s11.mod.objects.blocks.unique.powered_filters.IFilter;
+import s11.mod.objects.blocks.IFilter;
+import s11.mod.objects.blocks.poweredfilters.BlockIronPoweredFilter;
 
 public class TilePoweredFilterBase extends TileEntity implements ITickable, IFilter {
 	private final int maxTransfer = Integer.MAX_VALUE;

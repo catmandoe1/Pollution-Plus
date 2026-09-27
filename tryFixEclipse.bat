@@ -1,0 +1,4 @@
+gradlew clean eclipse
+gradlew setupDecompWorkspace
+gradlew eclipse
+pause

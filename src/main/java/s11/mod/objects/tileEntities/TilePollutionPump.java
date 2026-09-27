@@ -22,10 +22,10 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.Main;
 import s11.mod.config.PollutionPlusConfig;
-import s11.mod.objects.blocks.unique.powered_filters.BlockPoweredFilterBase;
-import s11.mod.objects.blocks.unique.powered_filters.IFilter;
-import s11.mod.objects.blocks.unique.pump.BlockPollutionPipe;
-import s11.mod.objects.blocks.unique.pump.BlockPollutionPump;
+import s11.mod.objects.blocks.IFilter;
+import s11.mod.objects.blocks.poweredfilters.BlockPoweredFilterBase;
+import s11.mod.objects.blocks.pump.BlockPollutionPipe;
+import s11.mod.objects.blocks.pump.BlockPollutionPump;
 
 public class TilePollutionPump extends TileEntity implements ITickable {
 	private long lastWork;

@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["AB","BB"],"key":{ "A":{"item":"pollutionplus:primed_binding_agent"}, "B":{"item":"pollutionplus:shard_void"}},"result":{"item":"pollutionplus:ingot_void"}}
+{"type":"forge:ore_shapeless","result":{"item":"pollutionplus:ingot_void","count":2},"ingredients":[{"type":"forge:ore_dict","ore":"ingotIron"},{"type":"forge:ore_dict","ore":"ingotGold"},{"type":"forge:ore_dict","ore":"enderpearl"},{"type":"forge:ore_dict","ore":"dustGlowstone"}]}
