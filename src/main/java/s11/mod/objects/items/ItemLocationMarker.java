@@ -25,7 +25,7 @@ import s11.mod.Main;
 import s11.mod.init.ItemInit;
 import s11.mod.objects.blocks.BlockPollutionDeleter;
 import s11.mod.objects.tileEntities.TilePollutionDeleter;
-import s11.mod.util.PollutionSounds;
+import s11.mod.sounds.PollutionSounds;
 
 public class ItemLocationMarker extends ItemBase {
 
@@ -130,7 +130,7 @@ public class ItemLocationMarker extends ItemBase {
 				// if item has position saved
 				if (heldItemStack.hasTagCompound() && heldItemStack.getTagCompound().hasKey("clickedPos")) {
 					BlockPos savedPos = BlockPos.fromLong(heldItemStack.getTagCompound().getLong("clickedPos"));
-					Main.logger.info(savedPos.toString());
+					Main.logger.debug("location marker saved location: " + savedPos.toString());
 
 					if (player.isSneaking()) {
 						deleter.setDeletionAreaBB(savedPos); // set second position

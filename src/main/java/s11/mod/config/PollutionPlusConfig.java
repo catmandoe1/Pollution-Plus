@@ -23,15 +23,20 @@ public class PollutionPlusConfig {
 		
 		
 		@LangKey("config.pollutionplus.machine_sounds")
-		public static MachineSounds machinesSounds = new MachineSounds(true);
+		public static MachineSounds machinesSounds = new MachineSounds(true, true);
 		
 		public static class MachineSounds {			
 			@Name("Pollution Incinerator Sound")
 			@Comment("Turns on and off all sounds for this machine")
 			public boolean incineratorSound;
+			
+			@Name("Pollution Pump Sound")
+			@Comment("Turns on and off ambient whirring sound")
+			public boolean pollutionPump;
 
-			MachineSounds(boolean incineratorSound) {
+			MachineSounds(boolean incineratorSound, boolean pollutionPump) {
 				this.incineratorSound = incineratorSound;
+				this.pollutionPump = pollutionPump;
 			}
 		}
 	}

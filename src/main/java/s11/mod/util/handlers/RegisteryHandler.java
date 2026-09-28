@@ -14,7 +14,7 @@ import s11.mod.Main;
 import s11.mod.init.BlockInit;
 import s11.mod.init.ItemInit;
 import s11.mod.network.PPNetwork;
-import s11.mod.util.PollutionSounds;
+import s11.mod.sounds.PollutionSounds;
 import s11.mod.util.interfaces.HasModel;
 
 @EventBusSubscriber

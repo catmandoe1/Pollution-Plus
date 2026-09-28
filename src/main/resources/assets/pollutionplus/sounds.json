@@ -28,5 +28,14 @@
 				"name": "pollutionplus:item/location_marker_use"
 			}
 		]
+	},
+	"block.pollution_pump.work": {
+		"category": "block",
+		"subtitle": "subtitle.pollutionplus.block.pollution_pump.work",
+		"sounds": [
+			{
+				"name": "pollutionplus:block/pollution_pump"
+			}
+		]
 	}
 }
