@@ -22,7 +22,7 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.BlockIncinerator;
-import s11.mod.util.PollutionSounds;
+import s11.mod.sounds.PollutionSounds;
 
 public class TileIncinerator extends TileEntity implements ITickable {
 	private final int maxCapacity = PollutionPlusConfig.Machines.incinerator.maxCapacity;

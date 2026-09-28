@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import com.endertech.minecraft.forge.api.IPollutant;
-import com.endertech.minecraft.forge.blocks.BlockState;
 import com.endertech.minecraft.mods.adpother.blocks.Filter;
 import com.endertech.minecraft.mods.adpother.blocks.Pollutant;
 import com.google.common.collect.Lists;
@@ -15,30 +14,43 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
-import s11.mod.Main;
 import s11.mod.config.PollutionPlusConfig;
 import s11.mod.objects.blocks.IFilter;
 import s11.mod.objects.blocks.poweredfilters.BlockPoweredFilterBase;
 import s11.mod.objects.blocks.pump.BlockPollutionPipe;
 import s11.mod.objects.blocks.pump.BlockPollutionPump;
+import s11.mod.sounds.PollutionSounds;
 
 public class TilePollutionPump extends TileEntity implements ITickable {
 	private long lastWork;
 	private BlockPos topPipe = null;
 	private boolean checkTopPipe = true;
 	private final EnergyStorage energy = new EnergyStorage(PollutionPlusConfig.Machines.pollutionPump.maxCapacity);
-
+	private long soundDelay;
+	
+	
+//	@Override
+//	public void onLoad() {
+//		Main.logger.info("loadddeded!!!!!" + this.canWorkClient());
+//		if (world.isRemote) {
+//			Main.proxy.handleTileSound(PollutionSounds.BLOCK_POLLUTION_PUMP_WORK, this, this.canWorkClient(), 1f, 1f); // do sound
+//		}
+//	}
+	
 
 	@Override
 	public void update() {
 		if (world.isRemote) {
+			//Main.proxy.handleTileSound(PollutionSounds.BLOCK_POLLUTION_PUMP_WORK, this, this.canWorkClient(), 1f, 1f); // do sound
 			return;
 		}
+		
 		
 		boolean powered = this.canWork();
 		
@@ -46,12 +58,17 @@ public class TilePollutionPump extends TileEntity implements ITickable {
 		if (this.checkTopPipe) {
 			this.topPipe = BlockPollutionPipe.findTop(world, this.pos);
 			this.checkTopPipe = false;
-			Main.logger.info("NEW TOP AT " + this.topPipe + "!!!!!");
+			//Main.logger.info("NEW TOP AT " + this.topPipe + "!!!!!");
 		}
 
 		if (powered) {
 			this.useRf();
 			this.markDirty();
+			
+			if (PollutionPlusConfig.GeneralConfig.machinesSounds.pollutionPump && world.getTotalWorldTime() - this.soundDelay >= 30) {
+				world.playSound(null, pos, PollutionSounds.BLOCK_POLLUTION_PUMP_WORK, SoundCategory.BLOCKS, 0.75f, 1f);
+				this.soundDelay = world.getTotalWorldTime();
+			}
 
 			if (this.hasCooledOff()) {
 				this.lastWork = world.getTotalWorldTime();
@@ -147,6 +164,10 @@ public class TilePollutionPump extends TileEntity implements ITickable {
 		return false;
 	}
 	
+	public boolean canWorkClient() {
+		return world.getBlockState(this.pos).getValue(BlockPollutionPump.ACTIVE);
+	}
+	
 	private boolean canWork() {
 		return this.energy.getEnergyStored() >= PollutionPlusConfig.Machines.pollutionPump.operationCost && this.topPipe != null;
 	}
@@ -172,7 +193,6 @@ public class TilePollutionPump extends TileEntity implements ITickable {
 	}
 	
 	public void onPipeChanged() {
-		Main.logger.info("top was cleared");
 		this.topPipe = null;
 		this.checkTopPipe = true;
 	}

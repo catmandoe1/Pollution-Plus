@@ -21,8 +21,8 @@ import s11.mod.config.PollutionPlusConfig;
 import s11.mod.config.ValidateInfiniteFilterItem;
 import s11.mod.objects.blocks.poweredfilters.BlockPoweredFilterBase;
 import s11.mod.objects.tileEntities.TileInfiniteFilter;
+import s11.mod.sounds.PollutionSounds;
 import s11.mod.util.PlayerPressing;
-import s11.mod.util.PollutionSounds;
 
 public class BlockInfiniteFilter extends BlockPoweredFilterBase {
 
