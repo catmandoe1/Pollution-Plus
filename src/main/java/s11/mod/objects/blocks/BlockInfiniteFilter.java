@@ -89,4 +89,15 @@ public class BlockInfiniteFilter extends BlockPoweredFilterBase {
 		return 0;
 	}
 	
+	@Override
+	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te,
+			ItemStack stack) {
+		super.harvestBlock(worldIn, player, pos, state, te, stack);
+		
+		// drop activation item
+		// could cheat with this by changing the config to dirt, activate the filter and then change to something expensive but not my problem
+		if (state.getValue(this.ACTIVE) && ValidateInfiniteFilterItem.isFilterItemValid()) {
+			this.spawnAsEntity(worldIn, pos, new ItemStack(ValidateInfiniteFilterItem.getFilterItem()));			
+		}
+	}	
 }
